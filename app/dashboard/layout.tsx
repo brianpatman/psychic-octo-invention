@@ -18,7 +18,7 @@ export default function Layout({children}: {children: React.ReactNode}){
 									<li key={link.id}>
 										<Link
 											href={link.href} 
-											className="">
+											className="p-5 bg-teal-500 text-white">
 											<p>{link.name}</p>		
 										</Link>
 									</li>
