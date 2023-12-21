@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 const links = [
-	{name:"Home", href:"/dashboard"},
-	{name:"Invoices", href:"/dashboard/invoices"},
-	{name:"Customers", href:"/dashboard/customers"},
+	{id:"1", name:"Home", href:"/dashboard"},
+	{id:"2", name:"Invoices", href:"/dashboard/invoices"},
+	{id:"3", name:"Customers", href:"/dashboard/customers"},
 ]
 
 export default function Layout({children}: {children: React.ReactNode}){
@@ -14,18 +14,13 @@ export default function Layout({children}: {children: React.ReactNode}){
 					<nav>
 						<ul>
 							{
-							links.map((link) => {
-								return (
-									<li>
-										<Link
-											key={link.name} 
-											href={link.href} 
-											className="">
+								links.map(link => 
+									<li key={link.id}>
+										<Link href={link.href}>
 											<p>{link.name}</p>		
 										</Link>
 									</li>
-								);
-							})
+								)
 							}
 						</ul>
 					</nav>
