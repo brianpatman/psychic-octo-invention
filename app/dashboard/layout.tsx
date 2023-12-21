@@ -9,14 +9,16 @@ const links = [
 export default function Layout({children}: {children: React.ReactNode}){
 	return (
 		<div className="flex flex-col md:flex-row md:overflow-hidden">
-			<div classNane="w-full flex-none md:w-64">
+			<div className="w-full flex-none md:w-64">
 				<div className="sidenav">
 					<nav>
 						<ul>
 							{
 								links.map(link => 
 									<li key={link.id}>
-										<Link href={link.href}>
+										<Link
+											href={link.href} 
+											className="">
 											<p>{link.name}</p>		
 										</Link>
 									</li>
