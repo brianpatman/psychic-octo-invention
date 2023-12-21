@@ -1,7 +1,7 @@
 export default function Layout({children}: {children: React.ReactNode}){
 	return (
 		<div className="flex flex-col md:flex-row md:overflow-hidden">
-			<div classNane="w-full flex-none md:w-64">
+			<div className="w-full flex-none md:w-64">
 				<div className="sidenav">
 					<nav>
 						<ul>
