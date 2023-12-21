@@ -1,21 +1,32 @@
+import Link from "next/link";
+
+const links = [
+	{name:"Home", href:"/dashboard"},
+	{name:"Invoices", href:"/dashboard/invoices"},
+	{name:"Customers", href:"/dashboard/customers"},
+]
+
 export default function Layout({children}: {children: React.ReactNode}){
 	return (
 		<div className="flex flex-col md:flex-row md:overflow-hidden">
-			<div className="w-full flex-none md:w-64">
+			<div classNane="w-full flex-none md:w-64">
 				<div className="sidenav">
 					<nav>
 						<ul>
-						    <li className="rounded-sm bg-emerald-300 mb-2">
-						    	<a href="">Home</a>
-						    </li>
-							
-							<li className="rounded-sm bg-emerald-300 mb-2">
-								<a href="">Invoices</a>
-							</li>
-
-							<li className="rounded-sm bg-emerald-300 mb-2">
-								<a href="">Customers</a>
-							</li>
+							{
+							links.map((link) => {
+								return (
+									<li>
+										<Link
+											key={link.name} 
+											href={link.href} 
+											className="">
+											<p>{link.name}</p>		
+										</Link>
+									</li>
+								)
+							})
+							}
 						</ul>
 					</nav>
 				</div>
