@@ -15,11 +15,11 @@ export default function Layout({children}: {children: React.ReactNode}){
 						<ul>
 							{
 								links.map(link => 
-									<li key={link.id}>
+									<li key={link.id} className="block">
 										<Link
 											href={link.href} 
-											className="p-5 bg-teal-500 text-white">
-											<p>{link.name}</p>		
+											className="block p-5 bg-teal-500 text-white">
+											{link.name}	
 										</Link>
 									</li>
 								)
