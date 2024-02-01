@@ -25,7 +25,7 @@ export default function Layout({children}: {children: React.ReactNode}){
 									<li key={link.id} className="block">
 										<Link
 											href={link.href} 
-											className="${roboto.className} block p-5 bg-teal-500 text-white hover:bg-teal-700">
+											className={`${roboto.className} block p-5 bg-teal-500 text-white hover:bg-teal-700`}>
 											{link.name}	
 										</Link>
 									</li>
