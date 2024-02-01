@@ -1,11 +1,5 @@
 import Link from "next/link";
-import { Roboto } from 'next/font/google';
-
-export const roboto = Roboto({
-	weight: ["400","700"],
-	subsets:['latin'],
-	display:"swap"
-});
+import { roboto } from "@/app/ui/fonts";
 
 const links = [
 	{id:"1", name:"Home", href:"/dashboard"},
@@ -25,7 +19,7 @@ export default function Layout({children}: {children: React.ReactNode}){
 									<li key={link.id} className="block">
 										<Link
 											href={link.href} 
-											className={roboto.className + "block p-5 bg-teal-500 text-white hover:bg-teal-700"}>
+											className="block p-5 bg-teal-500 text-white hover:bg-teal-700">
 											{link.name}	
 										</Link>
 									</li>
