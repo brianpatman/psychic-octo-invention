@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { roboto } from "@/app/ui/fonts";
+import "@/app/globals.css";
 
 const links = [
 	{id:"1", name:"Home", href:"/dashboard"},
