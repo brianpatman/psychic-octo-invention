@@ -15,9 +15,10 @@ export default function Page(){
 			First Number
 			<input 
 				id="first-num" 
-				type="number" 
+				type="number"
+				className="text-black p-10 rounded-md" 
 				name="first_number"
-				value="number1" 
+				value={number1}
 				onChange={(event) => setNum1( parseInt(event.target.value))}
 			/>
 		</label>
@@ -26,9 +27,10 @@ export default function Page(){
 			Second Number
 			<input 
 				id="second-num" 
-				type="number" 
+				type="number"
+				className="text-black p-10 rounded-md" 
 				name="second_number"
-				value="number2" 
+				value={number2} 
 				onChange={(event) => setNum2( parseInt(event.target.value))}
 			/>
 		</label>
