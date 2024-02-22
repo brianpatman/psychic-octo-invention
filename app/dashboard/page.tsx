@@ -37,7 +37,7 @@ export default function Page(){
 			Click Me
 		</button>
 
-		<div class="result">
+		<div className="result">
 			<h2>{total}</h2>
 		</div>
 	</>;
