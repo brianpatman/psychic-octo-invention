@@ -4,8 +4,9 @@ import "@/app/globals.css";
 
 const links = [
 	{id:"1", name:"Home", href:"/dashboard"},
-	{id:"2", name:"Invoices", href:"/dashboard/invoices"},
-	{id:"3", name:"Customers", href:"/dashboard/customers"},
+	{id:"2", name:"Simple Addition", href:"/dashboard/simple_add"}
+	// {id:"2", name:"Invoices", href:"/dashboard/invoices"},
+	// {id:"3", name:"Customers", href:"/dashboard/customers"},
 ]
 
 export default function Layout({children}: {children: React.ReactNode}){
