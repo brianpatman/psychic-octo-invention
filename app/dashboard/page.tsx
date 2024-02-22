@@ -3,14 +3,14 @@ import "@/app/globals.css";
 import { useState } from 'react';
 
 export default function Page(){
-	// const [total,setTotal] = useState(0);
-	// const [numbers,setNumbers] = useState({num1:0,num2:0});
 	const [number1,setNum1] = useState(0);
 	const [number2,setNum2] = useState(0);
-	const total = number1 + number2;
 
-	if(isNaN(total)){
-		total = "";
+	if(!isNaN(number1+number2)){
+		const total = number1 + number2;
+	}
+	else{
+		const total = "";
 	}
 
 	return <>
