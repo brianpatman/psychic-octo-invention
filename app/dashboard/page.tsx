@@ -8,7 +8,7 @@ export default function Page(){
 
 	function setFirstNum(e: React.FormEvent<HTMLInputElement>){
 		setNumbers({
-			num1: e.target.value(),
+			num1: e.target.value,
 			num2: numbers.num2
 		});
 	}
@@ -16,7 +16,7 @@ export default function Page(){
 	function setSecondNum(e: React.FormEvent<HTMLInputElement>){
 		setNumbers({
 			num1: numbers.num1,
-			num2: e.target.value()
+			num2: e.target.value
 		});
 	}
 
