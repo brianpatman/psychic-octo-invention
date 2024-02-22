@@ -5,15 +5,15 @@ import { useState } from 'react';
 export default function Page(){
 	const [numbers,setNumbers] = useState({num1:0,num2:0});
 	const total = numbers.num1 + numbers.num2;
-	
-	function setFirstNum(e){
+
+	function setFirstNum(e: React.FormEvent<HTMLInputElement>){
 		setNumbers({
 			num1: e.target.value(),
 			num2: numbers.num2
 		});
 	}
 
-	function setSecondNum(e){
+	function setSecondNum(e: React.FormEvent<HTMLInputElement>){
 		setNumbers({
 			num1: numbers.num1,
 			num2: e.target.value()
