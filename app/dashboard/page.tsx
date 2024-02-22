@@ -1,4 +1,5 @@
 import "@/app/globals.css";
+import { useState } from 'react';
 
 export default function Page(){
 	const [total,setTotal] = useState(0);
