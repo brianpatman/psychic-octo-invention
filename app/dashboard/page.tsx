@@ -3,31 +3,37 @@ import "@/app/globals.css";
 import { useState } from 'react';
 
 export default function Page(){
-	const [total,setTotal] = useState(0);
+	// const [total,setTotal] = useState(0);
+	const [numbers,setNumbers] = useState({"num1":0,"num2":0});
+	const total = numbers.num1 + numbers.num2;
 
-	function handleClick(){
-		// alert("clicked!");
+	function setFirstNum(e){
+		setNumbers({
+			num1: e.target.value(),
+			num2: numbers.num2
+		});
+	}
 
-		var FirstNum = parseInt(document.querySelector("#first-num").value());
-		var SecondNum = parseInt(document.querySelector("#second-num").value());
-
-		var newTotal= FirstNum + SecondNum;
-		setTotal(newTotal);
+	function setSecondNum(e){
+		setNumbers({
+			num1: numbers.num1,
+			num2: e.target.value()
+		});
 	}
 
 	return <>
 		<h1 className="text-sky-400 uppercase text-lg">Dashboard Page</h1>
 		<label>
 			First Number
-			<input id="first-num" type="number" name="first_number"/>
+			<input id="first-num" type="number" name="first_number" onChange={setFirstNum}/>
 		</label>
 
 		<label>
 			Second Number
-			<input id="second-num" type="number" name="second_number"/>
+			<input id="second-num" type="number" name="second_number" onChange={setSecondNum}/>
 		</label>
 
-		<button onClick={handleClick}>
+		<button>
 			Click Me
 		</button>
 
