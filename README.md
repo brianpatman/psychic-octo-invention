@@ -1,5 +1,8 @@
 ## Project Details
-Just a project for me to be able to play around with Next.JS and React
+
+So, this is just a project for me to be able to play around with Next.JS and React.
+
+No guarantees that anything on this project is going to be super polished or useful, as this is going to be a project that lives and grows with my React skills. Hopefully the constant stream of mistakes isn't too annoying to dig through.
 
 ---
 
