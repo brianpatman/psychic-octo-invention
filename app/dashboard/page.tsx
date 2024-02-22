@@ -3,10 +3,9 @@ import "@/app/globals.css";
 import { useState } from 'react';
 
 export default function Page(){
-	// const [total,setTotal] = useState(0);
-	const [numbers,setNumbers] = useState({"num1":0,"num2":0});
+	const [numbers,setNumbers] = useState({num1:0,num2:0});
 	const total = numbers.num1 + numbers.num2;
-
+	
 	function setFirstNum(e){
 		setNumbers({
 			num1: e.target.value(),
