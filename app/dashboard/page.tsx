@@ -5,13 +5,7 @@ import { useState } from 'react';
 export default function Page(){
 	const [number1,setNum1] = useState(0);
 	const [number2,setNum2] = useState(0);
-
-	if(!isNaN(number1+number2)){
-		const total = number1 + number2;
-	}
-	else{
-		const total = "";
-	}
+	const total = number1 + number2;
 
 	return <>
 		<h1 className="text-sky-400 uppercase text-lg">Dashboard Page</h1>
@@ -39,8 +33,14 @@ export default function Page(){
 			/>
 		</label>
 
-		<div className="result">
-			<h2>{total}</h2>
-		</div>
+		{ !isNaN(total) ? (
+			<div className="result">
+				<h2>{total}</h2>
+			</div>
+		):(
+			<div className="result">
+				<h2>No Result</h2>
+			</div>
+		)}
 	</>;
 }
