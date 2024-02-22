@@ -13,12 +13,24 @@ export default function Page(){
 		<h1 className="text-sky-400 uppercase text-lg">Dashboard Page</h1>
 		<label>
 			First Number
-			<input id="first-num" type="number" name="first_number" onChange={setNum1}/>
+			<input 
+				id="first-num" 
+				type="number" 
+				name="first_number"
+				value="number1" 
+				onChange={(event) => setNum1(event.target.value)}
+			/>
 		</label>
 
 		<label>
 			Second Number
-			<input id="second-num" type="number" name="second_number" onChange={setNum2}/>
+			<input 
+				id="second-num" 
+				type="number" 
+				name="second_number"
+				value="number2" 
+				onChange={(event) => setNum2(event.target.value)}
+			/>
 		</label>
 
 		<button>
