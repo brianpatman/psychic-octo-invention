@@ -11,7 +11,7 @@ const links = [
 export default function Layout({children}: {children: React.ReactNode}){
 	return (
 		<div className="flex flex-col md:flex-row md:overflow-hidden">
-			<div className="w-full flex-none md:w-48 height-screen bg-teal-700">
+			<div className="w-full flex-none w-48 md:w-64 height-screen bg-teal-700">
 				<div className="sidenav">
 					<nav>
 						<ul>
