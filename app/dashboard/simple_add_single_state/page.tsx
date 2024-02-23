@@ -10,7 +10,7 @@ export default function Page(){
 	const total = numbers.firstNum + numbers.secondNum;
 
 	return <>
-		<h1 className="text-sky-400 uppercase text-lg mb-4">Dashboard</h1>
+		<h1 className="text-sky-400 uppercase text-lg mb-4">Simple Addition with ONLY a Single State Variable</h1>
 		<label className="flex items-center gap-5 mb-3">
 			First Number
 			<input 
