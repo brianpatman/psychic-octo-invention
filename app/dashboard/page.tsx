@@ -25,8 +25,8 @@ export default function Page(){
 				value={number1}
 				onChange={(event) => setNumbers({
 						...numbers,
-						firstNum: event.target.value,
-					});
+						firstNum: event.target.value
+					})
 				}
 			/>
 		</label>
@@ -42,7 +42,7 @@ export default function Page(){
 				onChange={(event) => setNumbers({
 						...numbers,
 						secondNum: event.target.value
-					});
+					})
 				}
 			/>
 		</label>
