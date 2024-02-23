@@ -17,7 +17,7 @@ export default function Layout({children}: {children: React.ReactNode}){
 						<ul>
 							{
 								links.map(link => 
-									<li key={link.id} className="block border-b-1 border-white block">
+									<li key={link.id} className="block border-b border-white block">
 										<Link
 											href={link.href} 
 											className={`${roboto.className} text-white block p-5 bg-teal-500 hover:bg-teal-700`}>
