@@ -25,7 +25,7 @@ export default function Page(){
 				value={number1}
 				onChange={(event) => setNumbers({
 						...numbers,
-						firstNum: event.target.value
+						firstNum: parseInt(event.target.value)
 					})
 				}
 			/>
@@ -41,7 +41,7 @@ export default function Page(){
 				value={number2} 
 				onChange={(event) => setNumbers({
 						...numbers,
-						secondNum: event.target.value
+						secondNum: parseInt(event.target.value)
 					})
 				}
 			/>
