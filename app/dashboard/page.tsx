@@ -11,7 +11,7 @@ export default function Page(){
 		secondNum: 0
 	});
 	// const total = number1 + number2;
-	const total = numbers[firstNum] + numbers[secondNum]
+	const total = numbers.firstNum + numbers.secondNum;
 
 	return <>
 		<h1 className="text-sky-400 uppercase text-lg mb-4">Dashboard</h1>
@@ -23,6 +23,7 @@ export default function Page(){
 				className="text-black p-2 rounded-md" 
 				name="first_number"
 				value={number1}
+				// onChange={(event) => setNum1( parseInt(event.target.value))}
 				onChange={(event) => setNumbers({
 						...numbers,
 						firstNum: parseInt(event.target.value)
@@ -39,6 +40,7 @@ export default function Page(){
 				className="text-black p-2 rounded-md" 
 				name="second_number"
 				value={number2} 
+				// onChange={(event) => setNum2( parseInt(event.target.value))}
 				onChange={(event) => setNumbers({
 						...numbers,
 						secondNum: parseInt(event.target.value)
