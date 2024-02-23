@@ -5,31 +5,44 @@ import { useState } from 'react';
 export default function Page(){
 	const [number1,setNum1] = useState(0);
 	const [number2,setNum2] = useState(0);
+
+	const [numbers,setNumbers] = useState({
+		firstNum: 0,
+		secondNum: 0
+	});
 	const total = number1 + number2;
 
 	return <>
-		<h1 className="text-sky-400 uppercase text-lg">Dashboard Page</h1>
-		<label>
+		<h1 className="text-sky-400 uppercase text-lg mb-4">Dashboard</h1>
+		<label className="flex items-center gap-5 mb-3">
 			First Number
 			<input 
 				id="first-num" 
 				type="number"
-				className="text-black p-4 rounded-md" 
+				className="text-black p-2 rounded-md" 
 				name="first_number"
 				value={number1}
-				onChange={(event) => setNum1( parseInt(event.target.value))}
+				onChange={(event) => setNumbers({
+						firstNum: event.target.value,
+						secondNum: numbers[firstNum]
+					});
+				}
 			/>
 		</label>
 
-		<label>
+		<label className="flex items-center gap-5 mb-3">
 			Second Number
 			<input 
 				id="second-num" 
 				type="number"
-				className="text-black p-4 rounded-md" 
+				className="text-black p-2 rounded-md" 
 				name="second_number"
 				value={number2} 
-				onChange={(event) => setNum2( parseInt(event.target.value))}
+				onChange={(event) => setNumbers({
+						firstNum: numbers[secondNum],
+						secondNum: event.target.value
+					});
+				}
 			/>
 		</label>
 
