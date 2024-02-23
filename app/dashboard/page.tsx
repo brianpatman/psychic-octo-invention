@@ -3,8 +3,8 @@ import "@/app/globals.css";
 import { useState } from 'react';
 
 export default function Page(){
-	const [number1,setNum1] = useState(0);
-	const [number2,setNum2] = useState(0);
+	// const [number1,setNum1] = useState(0);
+	// const [number2,setNum2] = useState(0);
 
 	const [numbers,setNumbers] = useState({
 		firstNum: 0,
@@ -22,7 +22,7 @@ export default function Page(){
 				type="number"
 				className="text-black p-2 rounded-md" 
 				name="first_number"
-				value={number1}
+				value={numbers.firstNum}
 				// onChange={(event) => setNum1( parseInt(event.target.value))}
 				onChange={(event) => setNumbers({
 						...numbers,
@@ -39,7 +39,7 @@ export default function Page(){
 				type="number"
 				className="text-black p-2 rounded-md" 
 				name="second_number"
-				value={number2} 
+				value={numbers.secondNum} 
 				// onChange={(event) => setNum2( parseInt(event.target.value))}
 				onChange={(event) => setNumbers({
 						...numbers,
