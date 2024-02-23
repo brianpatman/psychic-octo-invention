@@ -10,7 +10,8 @@ export default function Page(){
 		firstNum: 0,
 		secondNum: 0
 	});
-	const total = number1 + number2;
+	// const total = number1 + number2;
+	const total = numbers[firstNum] + numbers[secondNum]
 
 	return <>
 		<h1 className="text-sky-400 uppercase text-lg mb-4">Dashboard</h1>
@@ -23,8 +24,8 @@ export default function Page(){
 				name="first_number"
 				value={number1}
 				onChange={(event) => setNumbers({
+						...numbers,
 						firstNum: event.target.value,
-						secondNum: numbers[firstNum]
 					});
 				}
 			/>
@@ -39,7 +40,7 @@ export default function Page(){
 				name="second_number"
 				value={number2} 
 				onChange={(event) => setNumbers({
-						firstNum: numbers[secondNum],
+						...numbers,
 						secondNum: event.target.value
 					});
 				}
