@@ -10,7 +10,7 @@ export default function ToDoListItem(){
 	
 	return <> 
 		<label className={{ checked ? "line-through" : "" }}>
-			<input type="checkbox" onChange={this.handleCheck} />
+			<input type="checkbox" onChange={handleCheck} />
 			Laundry
 		</label>
 	</>;
