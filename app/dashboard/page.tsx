@@ -8,8 +8,10 @@ export default function Page(){
 		<h1 className="text-sky-400 uppercase text-lg mb-4">Dashboard</h1>
 
 		<ToDoListItem/>
+		<ToDoListItem/>
+		<ToDoListItem/>
 
-		<h2 className="mt-5">React Apps to Make</h2>
+		<h2 className="mt-10">React Apps to Make</h2>
 		<ul className="list-disc list-inside">
 			<li>ToDo List</li>
 			<li>Weather App</li>
