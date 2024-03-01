@@ -1,22 +1,18 @@
-'use client'
 import "@/app/globals.css";
 import { useState } from 'react';
+import ToDoListItem from "./todo_list_item";
 
 export default function Page(){
-	// const [number1,setNum1] = useState(0);
-	// const [number2,setNum2] = useState(0);
-
-	const [numbers,setNumbers] = useState({
-		firstNum: 0,
-		secondNum: 0
-	});
-	// const total = number1 + number2;
-	const total = numbers.firstNum + numbers.secondNum;
 
 	return <>
 		<h1 className="text-sky-400 uppercase text-lg mb-4">Dashboard</h1>
-		<h2>React Apps to Make</h2>
-		<ul>
+
+		<ToDoListItem/>
+		<ToDoListItem/>
+		<ToDoListItem/>
+
+		<h2 className="mt-10">React Apps to Make</h2>
+		<ul className="list-disc list-inside">
 			<li>ToDo List</li>
 			<li>Weather App</li>
 			<li>Emoji Search</li>
