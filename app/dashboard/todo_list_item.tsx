@@ -9,9 +9,11 @@ export default function ToDoListItem(){
 	}
 	
 	return <> 
-		<label className={ checked ? "line-through" : "" }>
-			<input type="checkbox" onChange={handleCheck} />
-			Laundry
-		</label>
+		<div>
+			<label className={ checked ? "line-through" : "" }>
+				<input className="mr-1.5" type="checkbox" onChange={handleCheck} />
+				Laundry
+			</label>			
+		</div>
 	</>;
 }
