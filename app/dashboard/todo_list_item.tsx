@@ -9,7 +9,7 @@ export default function ToDoListItem(){
 	}
 	
 	return <> 
-		<label className={{ checked ? "line-through" : "" }}>
+		<label className={ checked ? "line-through" : "" }>
 			<input type="checkbox" onChange={handleCheck} />
 			Laundry
 		</label>
