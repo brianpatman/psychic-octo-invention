@@ -5,7 +5,7 @@ export default function ToDoListItem(){
 	const [checked,setCheck] = useState(false);
 
 	function handleCheck(ev){
-		setCheck(!checked);
+		setCheck(checked => !checked);
 	}
 	
 	return <> 
