@@ -15,48 +15,15 @@ export default function Page(){
 
 	return <>
 		<h1 className="text-sky-400 uppercase text-lg mb-4">Dashboard</h1>
-		<label className="flex items-center gap-5 mb-3">
-			First Number
-			<input 
-				id="first-num" 
-				type="number"
-				className="text-black p-2 rounded-md" 
-				name="first_number"
-				value={numbers.firstNum}
-				// onChange={(event) => setNum1( parseInt(event.target.value))}
-				onChange={(event) => setNumbers({
-						...numbers,
-						firstNum: parseInt(event.target.value)
-					})
-				}
-			/>
-		</label>
-
-		<label className="flex items-center gap-5 mb-3">
-			Second Number
-			<input 
-				id="second-num" 
-				type="number"
-				className="text-black p-2 rounded-md" 
-				name="second_number"
-				value={numbers.secondNum} 
-				// onChange={(event) => setNum2( parseInt(event.target.value))}
-				onChange={(event) => setNumbers({
-						...numbers,
-						secondNum: parseInt(event.target.value)
-					})
-				}
-			/>
-		</label>
-
-		{ !isNaN(total) ? (
-			<div className="result">
-				<h2>{total}</h2>
-			</div>
-		):(
-			<div className="result">
-				<h2>No Result</h2>
-			</div>
-		)}
+		<h2>React Apps to Make</h2>
+		<ul>
+			<li>ToDo List</li>
+			<li>Weather App</li>
+			<li>Emoji Search</li>
+			<li>Quiz</li>
+			<li>BMI Calculator</li>
+			<li>Calculator</li>
+			<li>Ecommerce Product Page</li>
+		</ul>
 	</>;
 }
