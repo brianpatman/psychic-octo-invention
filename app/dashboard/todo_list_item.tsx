@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function ToDoListItem(){
 	const [checked,setCheck] = useState(false);
 
-	function handleCheck(ev){
+	function handleCheck(){
 		setCheck(checked => !checked);
 	}
 	
