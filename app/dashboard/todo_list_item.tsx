@@ -9,7 +9,7 @@ export default function ToDoListItem(){
 	}
 	
 	return <> 
-		<label className={ `border border-white py-2 px-3 ${checked ? "line-through" : "" `}>
+		<label className={ `border border-white py-2 px-3 ${checked ? "line-through" : "" }`>
 			<input className="mr-1.5" type="checkbox" onChange={handleCheck} />
 			Laundry
 		</label>
