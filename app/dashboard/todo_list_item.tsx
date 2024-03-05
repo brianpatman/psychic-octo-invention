@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function ToDoListItem(){
 	const [checked,setCheck] = useState(false);
 	const [editable,setEditable] = useState(false);
-	// const [itemName,setName] = useState("");
+	const [itemName,setName] = useState("Laundry");
 
 	function handleCheck(){
 		setCheck(checked => !checked);
@@ -14,14 +14,15 @@ export default function ToDoListItem(){
 		setEditable(editable => !editable);
 	}
 
+
 	return <> 
 			<label className={`block border-y border-white py-2 px-3 ${checked ? "line-through" : "" }`}>
 				<input className="mr-1.5" type="checkbox" onChange={handleCheck} />
 
 				{ editable ? (
-					<input type="text" className="edit-name" />
+					<input type="text" className="edit-name color-black" onChange={(event) => setName(event.target.value)} />
 				) : (
-					<span className="itemName">Laundry</span>
+					<span className="itemName">{itemName}</span>
 				)}
 			</label>
 			<button onClick={editItem}>
