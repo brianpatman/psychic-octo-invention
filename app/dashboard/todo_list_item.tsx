@@ -3,15 +3,29 @@ import { useState } from "react";
 
 export default function ToDoListItem(){
 	const [checked,setCheck] = useState(false);
+	const [editable,setEditable] = useState(false);
+	// const [itemName,setName] = useState("");
 
 	function handleCheck(){
 		setCheck(checked => !checked);
 	}
-	
+
+	function editItem(){
+		setEditable(editable => !editable);
+	}
+
 	return <> 
-			<label className={ `border border-white py-2 px-3 ${checked ? "line-through" : "" }`}>
+			<label className={`block border-y border-white py-2 px-3 ${checked ? "line-through" : "" }`}>
 				<input className="mr-1.5" type="checkbox" onChange={handleCheck} />
-				Laundry
+
+				{ editable ? (
+					<input type="text" className="edit-name" />
+				) : (
+					<span className="itemName">Laundry</span>
+				)}
 			</label>
+			<button onClick={editItem}>
+				{ editable ? "Save Item" : "Edit Item"}
+			</button>
 	</>;
 }
