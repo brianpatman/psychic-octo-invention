@@ -1,7 +1,7 @@
 'use client';
 import { useState } from "react";
 
-export default function ToDoListItem({ name:string }){
+export default function ToDoListItem({ name } : {name:string}){
 	const [checked,setCheck] = useState(false);
 	const [editable,setEditable] = useState(false);
 	const [itemName,setName] = useState( name );
