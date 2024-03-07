@@ -1,10 +1,10 @@
 'use client';
 import { useState } from "react";
 
-export default function ToDoListItem(){
+export default function ToDoListItem({ name }){
 	const [checked,setCheck] = useState(false);
 	const [editable,setEditable] = useState(false);
-	const [itemName,setName] = useState("Laundry");
+	const [itemName,setName] = useState( name );
 
 	function handleCheck(){
 		setCheck(checked => !checked);
@@ -15,7 +15,7 @@ export default function ToDoListItem(){
 	}
 
 	return <> 
-		<div className="block border-y border-white py-2 px-3">
+		<div className="flex gap-24 items-center justify-between block border-y border-white py-2 px-3">
 			<label className={checked ? "line-through" : "" }>
 				<input className="mr-1.5" type="checkbox" onChange={handleCheck} />
 
