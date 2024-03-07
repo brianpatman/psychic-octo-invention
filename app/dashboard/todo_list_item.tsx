@@ -21,7 +21,7 @@ export default function ToDoListItem({ name } : {name:string}){
 				{ editable ? (
 					<input type="text" className="edit-name text-black" onChange={(event) => setName(event.target.value)} value={itemName} />
 				) : (
-					<input className="mr-1.5" type="checkbox" onChange={handleCheck} />
+					<input type="checkbox" className="mr-1.5" onChange={(event) => handleCheck()} />
 					<span className="itemName">{itemName}</span>
 				)}
 			</label>
