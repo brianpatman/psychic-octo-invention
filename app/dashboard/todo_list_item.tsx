@@ -15,13 +15,13 @@ export default function ToDoListItem({ name } : {name:string}){
 	}
 
 	return <> 
-		<div className="flex gap-24 items-center justify-between block border-y border-white py-2 px-3">
+		<div className="flex gap-24 items-center justify-between border-y border-white py-2 px-3">
 			<label className={checked ? "line-through" : "" }>
-				<input className="mr-1.5" type="checkbox" onChange={handleCheck} />
 
 				{ editable ? (
 					<input type="text" className="edit-name text-black" onChange={(event) => setName(event.target.value)} value={itemName} />
 				) : (
+					<input className="mr-1.5" type="checkbox" onChange={handleCheck} />
 					<span className="itemName">{itemName}</span>
 				)}
 			</label>
