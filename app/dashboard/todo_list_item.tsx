@@ -14,16 +14,24 @@ export default function ToDoListItem({ name } : {name:string}){
 		setEditable(editable => !editable);
 	}
 
+	function Item(){
+		if(editable){
+			return <>
+				<input type="text" className="edit-name text-black" onChange={(event) => setName(event.target.value)} value={itemName} />
+			</>;
+		}
+		else{
+			return <>
+				<span className="itemName">{itemName}</span>
+				<input className="mr-1.5" type="checkbox" onChange={handleCheck} />
+			</>;
+		}
+	}
+
 	return <> 
 		<div className="flex gap-24 items-center justify-between border-y border-white py-2 px-3">
 			<label className={checked ? "line-through" : "" }>
-
-				{ editable ? (
-					<input type="text" className="edit-name text-black" onChange={(event) => setName(event.target.value)} value={itemName} />
-				) : (
-					<input type="checkbox" className="mr-1.5" onChange={(event) => handleCheck()} />
-					<span className="itemName">{itemName}</span>
-				)}
+				<Item />
 			</label>
 			<button onClick={editItem}>
 				{ editable ? "Save Item" : "Edit Item"}
