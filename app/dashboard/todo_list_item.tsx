@@ -5,6 +5,10 @@ function Item({name, inEditMode} : {name:string,inEditMode:boolean}){
 	const [checked,setCheck] = useState(false);
 	const [itemName,setName] = useState( name );
 
+	function handleCheck(){
+		setCheck(checked => !checked);
+	}
+
 	if(inEditMode){
 		return <>
 			<label>
@@ -16,7 +20,7 @@ function Item({name, inEditMode} : {name:string,inEditMode:boolean}){
 	else{
 		return <>
 			<label className={checked ? "line-through" : "" }>
-				<input className="mr-1.5" type="checkbox" />
+				<input className="mr-1.5" type="checkbox" onChange={handleCheck} />
 				<span className="itemName">{itemName}</span>
 			</label>
 		</>
@@ -38,21 +42,21 @@ export default function ToDoListItem({ name } : {name:string}){
 
 	return <> 
 		<div className="flex gap-24 items-center justify-between border-y border-white py-2 px-3">
-				{ editable ? (
-					<>
-						<label>
-							<input type="text" className="edit-name text-black" onChange={(event) => setName(event.target.value)} value={itemName} />
-							<span className="sr-only">Edit {itemName} field</span>
-						</label>
-					</>
-				) : (
-					<>
-						<label className={checked ? "line-through" : "" }>
-							<input className="mr-1.5" type="checkbox" onChange={handleCheck} />
-							<span className="itemName">{itemName}</span>
-						</label>
-					</>
-				)}
+			{ editable ? (
+				<>
+					<label>
+						<input type="text" className="edit-name text-black" onChange={(event) => setName(event.target.value)} value={itemName} />
+						<span className="sr-only">Edit {itemName} field</span>
+					</label>
+				</>
+			) : (
+				<>
+					<label className={checked ? "line-through" : "" }>
+						<input className="mr-1.5" type="checkbox" onChange={handleCheck} />
+						<span className="itemName">{itemName}</span>
+					</label>
+				</>
+			)}
 			<Item name={name} inEditMode={editable} />
 			<button onClick={editItem}>
 				{ editable ? "Save Item" : "Edit Item"}
