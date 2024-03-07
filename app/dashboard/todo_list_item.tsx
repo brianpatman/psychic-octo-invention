@@ -14,9 +14,9 @@ export default function ToDoListItem(){
 		setEditable(editable => !editable);
 	}
 
-
 	return <> 
-			<label className={`block border-y border-white py-2 px-3 ${checked ? "line-through" : "" }`}>
+		<div className="block border-y border-white py-2 px-3">
+			<label className={checked ? "line-through" : "" }>
 				<input className="mr-1.5" type="checkbox" onChange={handleCheck} />
 
 				{ editable ? (
@@ -28,5 +28,6 @@ export default function ToDoListItem(){
 			<button onClick={editItem}>
 				{ editable ? "Save Item" : "Edit Item"}
 			</button>
+		</div>
 	</>;
 }
