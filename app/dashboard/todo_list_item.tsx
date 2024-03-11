@@ -27,6 +27,35 @@ import { useState } from "react";
 // 	}
 // }
 
+export default function ToDoList(){
+
+	let API_DATA = [
+		{id:1, name:"Laundry"},
+		{id:2, name:"Grocieries"},
+		{id:3, name:"Federal Tax Return"}
+	];
+
+	const [itemData,setItemData] = useState(API_DATA);
+
+	function addItem(formData){
+		setItemData({
+			...itemData,
+			{id:crypto.randomUUID(), name:formData.get("add-item-naame")}
+		});
+	}
+
+	return <>
+		itemData.map( item =>
+			<ToDoListItem key={item.id} name={item.name}/>
+		)
+		{/*{children}*/}
+		<form class="add-item-dialog" onSubmit={addItem}>
+			<input type="text" name="add-item-name" value=""/>
+			<button >Add Item</button>
+		</form>
+	</>;
+}
+
 export default function ToDoListItem({ name } : {name:string}){
 	const [editable,setEditable] = useState(false);
 	const [checked,setCheck] = useState(false);
