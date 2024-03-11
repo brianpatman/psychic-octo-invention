@@ -38,10 +38,10 @@ export default function ToDoList(){
 	const [itemData,setItemData] = useState(API_DATA);
 
 	function addItem(formData){
-		setItemData({
+		setItemData([
 			...itemData,
-			{id:crypto.randomUUID(), name:formData.get("add-item-naame")}
-		});
+			{id:crypto.randomUUID(), name:formData.get("add-item-name")}
+		]);
 	}
 
 	return <>
