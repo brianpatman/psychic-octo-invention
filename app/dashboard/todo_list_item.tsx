@@ -58,7 +58,7 @@ export default function ToDoList(){
 	</>;
 }
 
-export default function ToDoListItem({ name } : {name:string}){
+export function ToDoListItem({ name } : {name:string}){
 	const [editable,setEditable] = useState(false);
 	const [checked,setCheck] = useState(false);
 	const [itemName,setName] = useState( name );
