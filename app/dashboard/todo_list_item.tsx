@@ -45,9 +45,11 @@ export default function ToDoList(){
 	}
 
 	return <>
-		itemData.map( item =>
-			<ToDoListItem key={item.id} name={item.name}/>
-		)
+		{ 
+			itemData.map( item =>
+				<ToDoListItem key={item.id} name={item.name}/>
+			) 
+		}
 		{/*{children}*/}
 		<form class="add-item-dialog" onSubmit={addItem}>
 			<input type="text" name="add-item-name" value=""/>
