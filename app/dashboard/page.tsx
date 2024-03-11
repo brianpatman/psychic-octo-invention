@@ -1,6 +1,6 @@
 import "@/app/globals.css";
 import { useState } from 'react';
-import { ToDoList,ToDoListItem } from "./todo_list_item";
+import ToDoList from "./todo_list_item";
 
 export default function Page(){
 
