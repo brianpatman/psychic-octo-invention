@@ -40,7 +40,7 @@ export default function ToDoList(){
 	function addItem(event: React.FormEvent<HTMLFormElement>){
 		event.preventDefault();
 
-		if(!event.currentTarget){
+		if(!event.currentTarget.elements.namedItem("itemname").value){
 			return;
 		}
 
