@@ -44,7 +44,9 @@ export default function ToDoList(){
 			return;
 		}
 
-		const itemName = event.target.itemname.value;
+		console.log(event.target);
+
+		const itemName = event.target;
 		// const formData = new FormData(event.currentTarget);
 
 		setItemData([
