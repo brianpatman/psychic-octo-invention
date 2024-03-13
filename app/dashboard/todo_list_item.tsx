@@ -37,16 +37,16 @@ export default function ToDoList(){
 
 	const [itemData,setItemData] = useState(API_DATA);
 
-	// function addItem(e){
-	// 	e.preventDefault();
+	function addItem(e){
+		e.preventDefault();
 
-	// 	const newItemName = e.target.itemname.value;
+		const newItemName = e.target.itemname.value;
 
-	// 	setItemData([
-	// 		...itemData,
-	// 		{id:crypto.randomUUID(), name:newItemName}
-	// 	]);
-	// }
+		setItemData([
+			...itemData,
+			{id:crypto.randomUUID(), name:newItemName}
+		]);
+	}
 
 	return <>
 		{ 
@@ -55,8 +55,7 @@ export default function ToDoList(){
 			) 
 		}
 		{/*{children}*/}
-		{/* onSubmit={(e)=> {addItem(e)}} */}
-		<form className="add-item-dialog">
+		<form className="add-item-dialog" onSubmit={(e)=> {addItem(e)}}>
 			<input type="text" name="itemname" value=""/>
 			<button>Add Item</button>
 		</form>
