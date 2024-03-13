@@ -37,7 +37,7 @@ export default function ToDoList(){
 
 	const [itemData,setItemData] = useState(API_DATA);
 
-	function addItem = async (event) => {
+	const addItem = async (event) => {
 		event.preventDefault();
 		const itemName = event.target.itemname.value;
 		// const formData = new FormData(event.currentTarget);
