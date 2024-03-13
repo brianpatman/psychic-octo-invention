@@ -37,7 +37,7 @@ export default function ToDoList(){
 
 	const [itemData,setItemData] = useState(API_DATA);
 
-	function addItem(e){
+	function addItem(event: e){
 		e.preventDefault();
 
 		const newItemName = e.target.itemname.value;
