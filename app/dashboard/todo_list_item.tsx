@@ -40,11 +40,11 @@ export default function ToDoList(){
 	function addItem(event: React.FormEvent<HTMLFormElement>){
 		event.preventDefault();
 
-		if(!event.target){
+		if(!event.currentTarget){
 			return;
 		}
 
-		console.log(event.target);
+		console.log(event.currentTarget.elements.namedItem("itemname"));
 
 		// const itemName = event.target;
 		// const formData = new FormData(event.currentTarget);
