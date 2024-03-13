@@ -1,5 +1,5 @@
 'use client';
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 // function checklistItem({name, inEditMode} : {name:string,inEditMode:boolean}){
 // 	const [checked,setCheck] = useState(false);
@@ -40,11 +40,14 @@ export default function ToDoList(){
 	function addItem(event: React.FormEvent<HTMLFormElement>){
 		event.preventDefault();
 
-		if(!event.currentTarget.elements.namedItem("itemname").value){
-			return;
-		}
+		const itemName = useRef<HTMLFormElement>(null);
+		itemName.current = event.currentTarget.elements.namedItem("itemname").value;
 
-		console.log(event.currentTarget.elements.namedItem("itemname").value);
+		// if(!event.currentTarget.elements.namedItem("itemname").value){
+		// 	return;
+		// }
+
+		console.log(itemName);
 
 		// const itemName = event.target;
 		// const formData = new FormData(event.currentTarget);
