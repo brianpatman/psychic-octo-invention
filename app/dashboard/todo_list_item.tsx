@@ -37,7 +37,7 @@ export default function ToDoList(){
 
 	const [itemData,setItemData] = useState(API_DATA);
 
-	const addItem = async (event: Event) => {
+	function addItem(event: Event){
 		event.preventDefault();
 
 		if(!event.target){
@@ -62,7 +62,7 @@ export default function ToDoList(){
 			) 
 		}
 		{/*{children}*/}
-		<form className="add-item-dialog" onSubmit={addItem}>
+		<form className="add-item-dialog" onSubmit={(event) => addItem(event)}>
 			<input type="text" name="itemname" value=""/>
 			<button>Add Item</button>
 		</form>
