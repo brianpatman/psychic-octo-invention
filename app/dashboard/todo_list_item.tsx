@@ -46,13 +46,13 @@ export default function ToDoList(){
 
 		console.log(event.target);
 
-		const itemName = event.target;
+		// const itemName = event.target;
 		// const formData = new FormData(event.currentTarget);
 
-		setItemData([
-			...itemData,
-			{id:crypto.randomUUID(), name:itemName}
-		]);
+		// setItemData([
+		// 	...itemData,
+		// 	{id:crypto.randomUUID(), name:itemName}
+		// ]);
 	}
 
 	return <>
