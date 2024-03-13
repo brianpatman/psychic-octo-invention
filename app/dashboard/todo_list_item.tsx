@@ -37,14 +37,13 @@ export default function ToDoList(){
 
 	const [itemData,setItemData] = useState(API_DATA);
 
-	function addItem(event: e){
-		e.preventDefault();
-
-		const newItemName = e.target.itemname.value;
+	function addItem(event: FormEvent<HTMLFormElement>){
+		event.preventDefault();
+		const formData = new FormData(event.currentTarget);
 
 		setItemData([
 			...itemData,
-			{id:crypto.randomUUID(), name:newItemName}
+			{id:crypto.randomUUID(), name:formData}
 		]);
 	}
 
