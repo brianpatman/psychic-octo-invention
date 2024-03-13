@@ -39,6 +39,11 @@ export default function ToDoList(){
 
 	const addItem = async (event: Event) => {
 		event.preventDefault();
+
+		if(!event.target){
+			return;
+		}
+
 		const itemName = event.target.itemname.value;
 		// const formData = new FormData(event.currentTarget);
 
