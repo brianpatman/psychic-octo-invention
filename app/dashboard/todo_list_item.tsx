@@ -37,7 +37,7 @@ export default function ToDoList(){
 
 	const [itemData,setItemData] = useState(API_DATA);
 
-	function addItem(event: Event){
+	function addItem(event: React.FormEvent<HTMLFormElement>){
 		event.preventDefault();
 
 		if(!event.target){
@@ -62,7 +62,7 @@ export default function ToDoList(){
 			) 
 		}
 		{/*{children}*/}
-		<form className="add-item-dialog" onSubmit={(event) => addItem(event)}>
+		<form className="add-item-dialog" onSubmit={addItem}>
 			<input type="text" name="itemname" value=""/>
 			<button>Add Item</button>
 		</form>
