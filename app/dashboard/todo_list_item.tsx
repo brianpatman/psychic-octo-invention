@@ -44,7 +44,7 @@ export default function ToDoList(){
 			return;
 		}
 
-		console.log(event.currentTarget.elements.namedItem("itemname"));
+		console.log(event.currentTarget.elements.namedItem("itemname").value);
 
 		// const itemName = event.target;
 		// const formData = new FormData(event.currentTarget);
@@ -63,7 +63,7 @@ export default function ToDoList(){
 		}
 		{/*{children}*/}
 		<form className="add-item-dialog" onSubmit={addItem}>
-			<input type="text" name="itemname" value=""/>
+			<input className="text-black" type="text" name="itemname" value=""/>
 			<button>Add Item</button>
 		</form>
 	</>;
