@@ -39,9 +39,9 @@ export default function ToDoList(){
 	const [showCompleted,toggleCompleted] = useState(true);
 	let newItemName = useRef("");
 
-	function handleNewItemName(event:React.FormEvent<HTMLFormElement>){
-		newItemName.current = event.target.value;
-		// newItemName.current = value;
+	function handleNewItemName(value:string){
+		// newItemName.current = event.target.value;
+		newItemName.current = value;
 	}
 
 	function handleAddItem(event:React.FormEvent<HTMLFormElement>){
@@ -78,7 +78,7 @@ export default function ToDoList(){
 		}
 		{/*{children}*/}
 		<form className="add-item-dialog" onSubmit={(event) => handleAddItem(event)}>
-			<input className="text-black p-1" type="text" name="itemname" onChange={(event) => handleNewItemName(event)}/>
+			<input className="text-black p-1" type="text" name="itemname" onChange={(event) => handleNewItemName(event.target.value)}/>
 			<button>Add Item</button>
 		</form>
 	</>;
