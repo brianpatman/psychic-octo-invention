@@ -100,7 +100,7 @@ function ToDoListItem({name:string, showCompleted:bool}){
 	}
 
 	return <> 
-		{!showCompleted && !checked ?
+		{ (!showCompleted && !checked) &&
 		(
 			<div className="flex gap-24 items-center justify-between border-y border-white py-2 px-3">
 				{ editable ? (
