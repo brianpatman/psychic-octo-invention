@@ -36,7 +36,7 @@ export default function ToDoList(){
 	];
 
 	const [itemData,setItemData] = useState(API_DATA);
-	const [showCompleted,toggleCompleted] = useState(true);
+	const [showCompleted,toggleCompleted] = useState(false);
 	let newItemName = useRef("");
 
 	function handleNewItemName(value:string){
