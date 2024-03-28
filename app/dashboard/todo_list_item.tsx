@@ -80,6 +80,7 @@ export default function ToDoList(){
 	}
 
 	function handleSubmit(){
+		event.preventDefault();
 		setItemData([
 			...itemData,
 			{id:crypto.randomUUID(),name:newItemName.current}
@@ -93,7 +94,7 @@ export default function ToDoList(){
 			) 
 		}
 		{/*{children}*/}
-		<form className="add-item-dialog" onSubmit={handleSubmit}>
+		<form className="add-item-dialog" onSubmit={(event) => handleSubmit}>
 			<input className="text-black" type="text" name="itemname" onChange={(event) => handleNewItemName(event.target.value)}/>
 			<button>Add Item</button>
 		</form>
