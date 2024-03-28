@@ -37,29 +37,29 @@ export default function ToDoList(){
 
 	const [itemData,setItemData] = useState(API_DATA);
 	// let newItemName = useRef<HTMLFormElement>(null);
+	let newItemName = useRef(null);
 
-	function addItem(event: React.FormEvent<HTMLFormElement>){
-		event.preventDefault();
-
+	// function addItem(event: React.FormEvent<HTMLFormElement>){
+	// 	event.preventDefault();
 		// newItemName.current = event.currentTarget.elements.namedItem("itemname").value;
 
-		if(!event){
-			return;
-		}
-		if(!event.currentTarget){
-			return;
-		}
-		if(!event.currentTarget.elements){
-			return;
-		}
-		if(!event.currentTarget.elements.namedItem("itemname")){
-			return;
-		}
-		if(!event.currentTarget.elements.namedItem("itemname").value){
-			return;
-		}
+		// if(!event){
+		// 	return;
+		// }
+		// if(!event.currentTarget){
+		// 	return;
+		// }
+		// if(!event.currentTarget.elements){
+		// 	return;
+		// }
+		// if(!event.currentTarget.elements.namedItem("itemname")){
+		// 	return;
+		// }
+		// if(!event.currentTarget.elements.namedItem("itemname").value){
+		// 	return;
+		// }
 
-		console.log(event.currentTarget.elements.namedItem("itemname").value);
+		// console.log(event.currentTarget.elements.namedItem("itemname").value);
 
 		// const itemName = event.target;
 		// const formData = new FormData(event.currentTarget);
@@ -68,6 +68,17 @@ export default function ToDoList(){
 		// 	...itemData,
 		// 	{id:crypto.randomUUID(), name:itemName}
 		// ]);
+	// }
+
+	function handleNewItemName(){
+		newItemName.current = event.target.value;
+	}
+
+	function handleSubmit(){
+		setItemData([
+			...itemData,
+			{id:crypto.randomUUID(),name:newItemName.current}
+		]);
 	}
 
 	return <>
@@ -77,8 +88,8 @@ export default function ToDoList(){
 			) 
 		}
 		{/*{children}*/}
-		<form className="add-item-dialog" onSubmit={addItem}>
-			<input className="text-black" type="text" name="itemname" value=""/>
+		<form className="add-item-dialog" onSubmit={handleSubmit}>
+			<input className="text-black" type="text" name="itemname" onChange={handleNewItemName}/>
 			<button>Add Item</button>
 		</form>
 	</>;
