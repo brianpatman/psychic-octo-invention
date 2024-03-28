@@ -112,7 +112,7 @@ function ToDoListItem({ name,showCompleted } : {name:string,showCompleted:boolea
 					) : (
 						<>
 							<label className={checked ? "line-through" : "" }>
-								<input className="mr-1.5" type="checkbox" onChange={handleCheck} />
+								<input className="mr-1.5" type="checkbox" onChange={handleCheck} checked={checked} />
 								<span className="itemName">{itemName}</span>
 							</label>
 						</>
