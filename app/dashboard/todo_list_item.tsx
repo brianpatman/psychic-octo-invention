@@ -46,7 +46,7 @@ export default function ToDoList(){
 
 	function handleAddItem(event:React.FormEvent<HTMLFormElement>){
 		event.preventDefault();
-		event.target.reset();
+		// event.target.reset();
 
 		setItemData([
 			...itemData,
