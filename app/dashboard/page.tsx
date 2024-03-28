@@ -1,15 +1,19 @@
 import "@/app/globals.css";
 import { useState } from 'react';
-import ToDoListItem from "./todo_list_item";
+import ToDoList from "./todo_list_item";
 
 export default function Page(){
 
 	return <>
 		<h1 className="text-sky-400 uppercase text-lg mb-4">Dashboard</h1>
 
-		<ToDoListItem/>
-		<ToDoListItem/>
-		<ToDoListItem/>
+		{/*<div className="block">*/}
+		<ToDoList>
+{/*			<ToDoListItem name="Laundry"/>
+			<ToDoListItem name="Groceries"/>
+			<ToDoListItem name="Get Federal Income Taxes Done"/>*/}
+		</ToDoList>
+		{/*</div>*/}
 
 		<h2 className="mt-10">React Apps to Make</h2>
 		<ul className="list-disc list-inside">
