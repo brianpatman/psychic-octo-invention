@@ -70,7 +70,7 @@ export default function ToDoList(){
 		// ]);
 	// }
 
-	function handleNewItemName(value){
+	function handleNewItemName(value:string){
 		// newItemName.current = event.target.value;
 		newItemName.current = value
 	}
