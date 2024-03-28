@@ -70,8 +70,9 @@ export default function ToDoList(){
 		// ]);
 	// }
 
-	function handleNewItemName(event){
-		newItemName.current = event.target.value;
+	function handleNewItemName(value){
+		// newItemName.current = event.target.value;
+		newItemName.current = value
 	}
 
 	function handleSubmit(){
@@ -89,7 +90,7 @@ export default function ToDoList(){
 		}
 		{/*{children}*/}
 		<form className="add-item-dialog" onSubmit={handleSubmit}>
-			<input className="text-black" type="text" name="itemname" onChange={(event) => handleNewItemName}/>
+			<input className="text-black" type="text" name="itemname" onChange={(event) => handleNewItemName(event.target.value)}/>
 			<button>Add Item</button>
 		</form>
 	</>;
