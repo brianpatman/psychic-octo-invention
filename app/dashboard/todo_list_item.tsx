@@ -29,17 +29,13 @@ import { useRef, useState } from "react";
 
 export default function ToDoList(){
 
-	// let API_DATA = [
-	// 	{id:"1", name:"Laundry"},
-	// 	{id:"2", name:"Grocieries"},
-	// 	{id:"3", name:"Federal Tax Return"}
-	// ];
-
-	const [itemData,setItemData] = useState([
+	let API_DATA = [
 		{id:"1", name:"Laundry"},
 		{id:"2", name:"Grocieries"},
 		{id:"3", name:"Federal Tax Return"}
-	]);
+	];
+
+	const [itemData,setItemData] = useState(API_DATA);
 	// let newItemName = useRef<HTMLFormElement>(null);
 	let newItemName = useRef("");
 
@@ -79,7 +75,7 @@ export default function ToDoList(){
 		newItemName.current = value
 	}
 
-	function handleSubmit(){
+	function handleSubmit(event:React.FormEvent<HTMLFormElement>){
 		event.preventDefault();
 		setItemData([
 			...itemData,
@@ -94,7 +90,7 @@ export default function ToDoList(){
 			) 
 		}
 		{/*{children}*/}
-		<form className="add-item-dialog" onSubmit={(event) => handleSubmit}>
+		<form className="add-item-dialog" onSubmit={(event) => handleSubmit(event)}>
 			<input className="text-black" type="text" name="itemname" onChange={(event) => handleNewItemName(event.target.value)}/>
 			<button>Add Item</button>
 		</form>
