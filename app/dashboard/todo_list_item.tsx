@@ -30,9 +30,9 @@ import { useRef, useState } from "react";
 export default function ToDoList(){
 
 	let API_DATA = [
-		{id:1, name:"Laundry"},
-		{id:2, name:"Grocieries"},
-		{id:3, name:"Federal Tax Return"}
+		{id:"1", name:"Laundry"},
+		{id:"2", name:"Grocieries"},
+		{id:"3", name:"Federal Tax Return"}
 	];
 
 	const [itemData,setItemData] = useState(API_DATA);
