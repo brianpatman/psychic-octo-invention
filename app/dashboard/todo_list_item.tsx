@@ -37,7 +37,7 @@ export default function ToDoList(){
 
 	const [itemData,setItemData] = useState(API_DATA);
 	// let newItemName = useRef<HTMLFormElement>(null);
-	let newItemName = useRef(null);
+	let newItemName = useRef("");
 
 	// function addItem(event: React.FormEvent<HTMLFormElement>){
 	// 	event.preventDefault();
