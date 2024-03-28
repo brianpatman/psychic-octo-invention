@@ -36,68 +36,57 @@ export default function ToDoList(){
 	];
 
 	const [itemData,setItemData] = useState(API_DATA);
-	// let newItemName = useRef<HTMLFormElement>(null);
+	const [showCompleted,toggleCompleted] = useState(true);
 	let newItemName = useRef("");
 
-	// function addItem(event: React.FormEvent<HTMLFormElement>){
-	// 	event.preventDefault();
-		// newItemName.current = event.currentTarget.elements.namedItem("itemname").value;
-
-		// if(!event){
-		// 	return;
-		// }
-		// if(!event.currentTarget){
-		// 	return;
-		// }
-		// if(!event.currentTarget.elements){
-		// 	return;
-		// }
-		// if(!event.currentTarget.elements.namedItem("itemname")){
-		// 	return;
-		// }
-		// if(!event.currentTarget.elements.namedItem("itemname").value){
-		// 	return;
-		// }
-
-		// console.log(event.currentTarget.elements.namedItem("itemname").value);
-
-		// const itemName = event.target;
-		// const formData = new FormData(event.currentTarget);
-
-		// setItemData([
-		// 	...itemData,
-		// 	{id:crypto.randomUUID(), name:itemName}
-		// ]);
-	// }
-
-	function handleNewItemName(value:string){
-		// newItemName.current = event.target.value;
-		newItemName.current = value
+	function handleNewItemName(event:React.FormEvent<HTMLFormElement>){
+		newItemName.current = event.target.value;
+		// newItemName.current = value;
 	}
 
-	function handleSubmit(event:React.FormEvent<HTMLFormElement>){
+	function handleAddItem(event:React.FormEvent<HTMLFormElement>){
 		event.preventDefault();
+
+		newItemName.current = "";
+
 		setItemData([
 			...itemData,
 			{id:crypto.randomUUID(),name:newItemName.current}
 		]);
 	}
 
+	function deleteItem(){
+		console.log("Item Deleted");
+	}
+
+	function showHideCompleted(){
+		toggleCompleted(showCompleted => !showCompleted);
+	}
+
 	return <>
+		<div className="controls">
+			<label>			
+				<input className="mr-1.5" type="checkbox" onChange={showHideCompleted} />
+				Show Completed Items
+			</label>
+		</div>
+
 		{ 
 			itemData.map( item =>
-				<ToDoListItem key={item.id} name={item.name}/>
+				<ToDoListItem key={item.id} name={item.name} showCompleted={showCompleted}/>
 			) 
 		}
 		{/*{children}*/}
-		<form className="add-item-dialog" onSubmit={(event) => handleSubmit(event)}>
-			<input className="text-black" type="text" name="itemname" onChange={(event) => handleNewItemName(event.target.value)}/>
+		<form className="add-item-dialog" onSubmit={(event) => handleAddItem(event)}>
+			<input className="text-black p-1" type="text" name="itemname" onChange={(event) => handleNewItemName(event)}/>
 			<button>Add Item</button>
 		</form>
 	</>;
 }
 
-function ToDoListItem({ name } : {name:string}){
+// function ToDoListItem({name:string, deleteFunc:function}){
+// function ToDoListItem({ name } : {name:string}){
+function ToDoListItem({name:string, showCompleted:bool}){
 	const [editable,setEditable] = useState(false);
 	const [checked,setCheck] = useState(false);
 	const [itemName,setName] = useState( name );
@@ -111,26 +100,29 @@ function ToDoListItem({ name } : {name:string}){
 	}
 
 	return <> 
-		<div className="flex gap-24 items-center justify-between border-y border-white py-2 px-3">
-			{ editable ? (
-				<>
-					<label>
-						<input type="text" className="edit-name text-black" onChange={(event) => setName(event.target.value)} value={itemName} />
-						<span className="sr-only">Edit {itemName} field</span>
-					</label>
-				</>
-			) : (
-				<>
-					<label className={checked ? "line-through" : "" }>
-						<input className="mr-1.5" type="checkbox" onChange={handleCheck} />
-						<span className="itemName">{itemName}</span>
-					</label>
-				</>
-			)}
-			{/*<checklistItem name={name} inEditMode={editable} />*/}
-			<button onClick={editItem}>
-				{ editable ? "Save Item" : "Edit Item"}
-			</button>
-		</div>
+		{!showCompleted && !checked ?
+		(
+			<div className="flex gap-24 items-center justify-between border-y border-white py-2 px-3">
+				{ editable ? (
+					<>
+						<label>
+							<input type="text" className="edit-name text-black" onChange={(event) => setName(event.target.value)} value={itemName} />
+							<span className="sr-only">Edit {itemName} field</span>
+						</label>
+					</>
+				) : (
+					<>
+						<label className={checked ? "line-through" : "" }>
+							<input className="mr-1.5" type="checkbox" onChange={handleCheck} />
+							<span className="itemName">{itemName}</span>
+						</label>
+					</>
+				)}
+				{/*<checklistItem name={name} inEditMode={editable} />*/}
+				<button onClick={editItem}>
+					{ editable ? "Save Item" : "Edit Item"}
+				</button>
+			</div>
+		)}
 	</>;
 }
