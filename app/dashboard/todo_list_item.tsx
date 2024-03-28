@@ -46,17 +46,12 @@ export default function ToDoList(){
 
 	function handleAddItem(event:React.FormEvent<HTMLFormElement>){
 		event.preventDefault();
-
-		newItemName.current = "";
+		event.target.reset();
 
 		setItemData([
 			...itemData,
 			{id:crypto.randomUUID(),name:newItemName.current}
 		]);
-	}
-
-	function deleteItem(){
-		console.log("Item Deleted");
 	}
 
 	function showHideCompleted(){
@@ -84,8 +79,6 @@ export default function ToDoList(){
 	</>;
 }
 
-// function ToDoListItem({name:string, deleteFunc:function}){
-// function ToDoListItem({name:string, showCompleted:bool}){
 function ToDoListItem({ name,showCompleted } : {name:string,showCompleted:boolean}){
 	const [editable,setEditable] = useState(false);
 	const [checked,setCheck] = useState(false);
