@@ -85,8 +85,8 @@ export default function ToDoList(){
 }
 
 // function ToDoListItem({name:string, deleteFunc:function}){
-// function ToDoListItem({ name } : {name:string}){
-function ToDoListItem({name:string, showCompleted:bool}){
+// function ToDoListItem({name:string, showCompleted:bool}){
+function ToDoListItem({ name,showCompleted } : {name:string,showCompleted:bool}){
 	const [editable,setEditable] = useState(false);
 	const [checked,setCheck] = useState(false);
 	const [itemName,setName] = useState( name );
