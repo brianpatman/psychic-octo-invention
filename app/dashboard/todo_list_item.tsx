@@ -99,7 +99,7 @@ function ToDoListItem({ name,showCompleted } : {name:string,showCompleted:boolea
 		setEditable(editable => !editable);
 	}
 
-	if(!showCompleted || !checked){
+	if( !checked || (checked && showCompleted)){
 		return <> 
 				<div className="flex gap-24 items-center justify-between border-y border-white py-2 px-3">
 					{ editable ? (
