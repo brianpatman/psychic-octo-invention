@@ -40,17 +40,16 @@ export default function ToDoList(){
 	let newItemName = useRef("");
 
 	function handleNewItemName(value:string){
-		// newItemName.current = event.target.value;
 		newItemName.current = value;
 	}
 
 	function handleAddItem(event:React.FormEvent<HTMLFormElement>){
 		event.preventDefault();
-		// event.target.reset();
+		event.target.reset();
 
-		// if(newItemName == ""){
-		// 	return false;
-		// }
+		if(newItemName.current == ""){
+			return false;
+		}
 
 		setItemData([
 			...itemData,
@@ -93,7 +92,6 @@ export default function ToDoList(){
 }
 
 function ToDoListItem({ id,name,showCompleted,ToDos,setToDos }:{id:any,name:string,showCompleted:boolean,ToDos:Array<any>,setToDos:any}){
-// function ToDoListItem({ name:string,showCompleted:boolean, ToDos:Array, setToDos:any }){
 	const [editable,setEditable] = useState(false);
 	const [checked,setCheck] = useState(false);
 	const [itemName,setName] = useState( name );
