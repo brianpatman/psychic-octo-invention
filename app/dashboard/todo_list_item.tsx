@@ -31,7 +31,7 @@ export default function ToDoList(){
 
 	let API_DATA = [
 		{id:"1", name:"Laundry"},
-		{id:"2", name:"Grocieries"},
+		{id:"2", name:"Groceries"},
 		{id:"3", name:"Federal Tax Return"}
 	];
 
@@ -48,10 +48,22 @@ export default function ToDoList(){
 		event.preventDefault();
 		// event.target.reset();
 
+		if(newItemName == ""){
+			return false;
+		}
+
 		setItemData([
 			...itemData,
 			{id:crypto.randomUUID(),name:newItemName.current}
 		]);
+	}
+
+	function handleClick(event:React.FormEvent<HTMLFormElement>){
+		console.log(event.target.classList);
+
+		if(event.target.classList.contains("delete-item-btn")){
+			console.log("Delete Button Clicked!");
+		}
 	}
 
 	function showHideCompleted(){
@@ -69,10 +81,14 @@ export default function ToDoList(){
 		{ 
 			itemData.map( item =>
 				<ToDoListItem key={item.id} name={item.name} showCompleted={showCompleted}/>
-			) 
+			)
 		}
 		{/*{children}*/}
-		<form className="add-item-dialog" onSubmit={(event) => handleAddItem(event)}>
+		<form 
+			className="add-item-dialog" 
+			onSubmit={(event) => handleAddItem(event)}
+			onClick={(event) => handleClick(event)}
+		>
 			<input className="text-black p-1" type="text" name="itemname" onChange={(event) => handleNewItemName(event.target.value)}/>
 			<button>Add Item</button>
 		</form>
@@ -114,6 +130,8 @@ function ToDoListItem({ name,showCompleted } : {name:string,showCompleted:boolea
 					<button onClick={editItem}>
 						{ editable ? "Save Item" : "Edit Item"}
 					</button>
+
+					<button className="delete-item-btn">Delete Item</button>
 				</div>
 		</>;
 	}
