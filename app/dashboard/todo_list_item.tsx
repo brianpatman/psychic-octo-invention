@@ -106,7 +106,8 @@ function ToDoListItem({ name,showCompleted,ToDos,setToDos }:{name:string,showCom
 	}
 
 	function deleteItem(){
-		setToDos( ToDos.filter( (listItem) => listItem.name != itemName) );
+		console.log(`deleting ${itemName}`);
+		// setToDos( ToDos.filter( (listItem) => listItem.name != itemName) );
 	}
 
 	if( !checked || (checked && showCompleted)){
