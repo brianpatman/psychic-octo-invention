@@ -91,7 +91,7 @@ export default function ToDoList(){
 	</>;
 }
 
-function ToDoListItem({ name,showCompleted,ToDos,setToDos }:{name:string,showCompleted:boolean,ToDos:Array<object>,setToDos:any}){
+function ToDoListItem({ name,showCompleted,ToDos,setToDos }:{name:string,showCompleted:boolean,ToDos:Array<any>,setToDos:any}){
 // function ToDoListItem({ name:string,showCompleted:boolean, ToDos:Array, setToDos:any }){
 	const [editable,setEditable] = useState(false);
 	const [checked,setCheck] = useState(false);
@@ -107,7 +107,7 @@ function ToDoListItem({ name,showCompleted,ToDos,setToDos }:{name:string,showCom
 
 	function deleteItem(){
 		console.log(`deleting ${itemName}`);
-		// setToDos( ToDos.filter( (listItem) => listItem.name != itemName) );
+		console.log( ToDos.filter( (listItem) => listItem.name !== itemName) );
 	}
 
 	if( !checked || (checked && showCompleted)){
