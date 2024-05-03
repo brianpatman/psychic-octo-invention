@@ -59,11 +59,12 @@ export default function ToDoList(){
 	}
 
 	function handleClick(event:React.FormEvent<HTMLFormElement>){
-		console.log(event.target.classList);
+		console.log(event.target);
+		// console.log(event.target.classList);
 
-		if(event.target.classList.contains("delete-item-btn")){
-			console.log("Delete Button Clicked!");
-		}
+		// if(event.target.classList.contains("delete-item-btn")){
+		// 	console.log("Delete Button Clicked!");
+		// }
 	}
 
 	function showHideCompleted(){
