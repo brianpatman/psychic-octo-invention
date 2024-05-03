@@ -91,7 +91,7 @@ export default function ToDoList(){
 	</>;
 }
 
-function ToDoListItem({ name,showCompleted,ToDos,setToDos }:{name:string,showCompleted:boolean,ToDos:Array,setToDos:any}){
+function ToDoListItem({ name,showCompleted,ToDos,setToDos }:{name:string,showCompleted:boolean,ToDos:Array<object>,setToDos:any}){
 // function ToDoListItem({ name:string,showCompleted:boolean, ToDos:Array, setToDos:any }){
 	const [editable,setEditable] = useState(false);
 	const [checked,setCheck] = useState(false);
