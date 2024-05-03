@@ -45,7 +45,7 @@ export default function ToDoList(){
 
 	function handleAddItem(event:React.FormEvent<HTMLFormElement>){
 		event.preventDefault();
-		console.log(event);
+		document.querySelector("form.add-item-dialog").reset();
 
 		if(newItemName.current == ""){
 			return false;
