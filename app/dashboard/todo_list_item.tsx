@@ -75,8 +75,8 @@ export default function ToDoList(){
 				<ToDoListItem 
 					key={item.id} 
 					name={item.name} 
-					showCompleted={showCompleted}
-					ToDos={itemData}
+					showCompleted={showCompleted} 
+					ToDos={itemData} 
 					setToDos={setItemData}/>
 			)
 		}
