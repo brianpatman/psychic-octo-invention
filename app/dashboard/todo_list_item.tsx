@@ -58,15 +58,6 @@ export default function ToDoList(){
 		]);
 	}
 
-	function handleClick(event:React.FormEvent<HTMLFormElement>){
-		console.log(event.target);
-		// console.log(event.target.classList);
-
-		// if(event.target.classList.contains("delete-item-btn")){
-		// 	console.log("Delete Button Clicked!");
-		// }
-	}
-
 	function showHideCompleted(){
 		toggleCompleted(showCompleted => !showCompleted);
 	}
@@ -81,14 +72,18 @@ export default function ToDoList(){
 
 		{ 
 			itemData.map( item =>
-				<ToDoListItem key={item.id} name={item.name} showCompleted={showCompleted}/>
+				<ToDoListItem 
+					key={item.id} 
+					name={item.name} 
+					showCompleted={showCompleted}
+					ToDos={itemData}
+					setToDos={setItemData}/>
 			)
 		}
 		{/*{children}*/}
 		<form 
 			className="add-item-dialog" 
 			onSubmit={(event) => handleAddItem(event)}
-			onClick={(event) => handleClick(event)}
 		>
 			<input className="text-black p-1" type="text" name="itemname" onChange={(event) => handleNewItemName(event.target.value)} />
 			<button>Add Item</button>
@@ -96,7 +91,7 @@ export default function ToDoList(){
 	</>;
 }
 
-function ToDoListItem({ name,showCompleted } : {name:string,showCompleted:boolean}){
+function ToDoListItem({ name,showCompleted,ToDos,setToDos } : {name:string,showCompleted:boolean}){
 	const [editable,setEditable] = useState(false);
 	const [checked,setCheck] = useState(false);
 	const [itemName,setName] = useState( name );
@@ -107,6 +102,10 @@ function ToDoListItem({ name,showCompleted } : {name:string,showCompleted:boolea
 
 	function editItem(){
 		setEditable(editable => !editable);
+	}
+
+	function deleteItem(){
+		setToDos( ToDos.filter( (word) => word != itemName) );
 	}
 
 	if( !checked || (checked && showCompleted)){
@@ -132,7 +131,7 @@ function ToDoListItem({ name,showCompleted } : {name:string,showCompleted:boolea
 						{ editable ? "Save Item" : "Edit Item"}
 					</button>
 
-					<button className="delete-item-btn">Delete Item</button>
+					<button className="delete-item-btn" onClick={deleteItem}>Delete Item</button>
 				</div>
 		</>;
 	}
