@@ -74,6 +74,7 @@ export default function ToDoList(){
 			itemData.map( item =>
 				<ToDoListItem 
 					key={item.id} 
+					id={item.id}
 					name={item.name} 
 					showCompleted={showCompleted} 
 					ToDos={itemData} 
@@ -91,7 +92,7 @@ export default function ToDoList(){
 	</>;
 }
 
-function ToDoListItem({ name,showCompleted,ToDos,setToDos }:{name:string,showCompleted:boolean,ToDos:Array<any>,setToDos:any}){
+function ToDoListItem({ id,name,showCompleted,ToDos,setToDos }:{id:any,name:string,showCompleted:boolean,ToDos:Array<any>,setToDos:any}){
 // function ToDoListItem({ name:string,showCompleted:boolean, ToDos:Array, setToDos:any }){
 	const [editable,setEditable] = useState(false);
 	const [checked,setCheck] = useState(false);
@@ -107,7 +108,7 @@ function ToDoListItem({ name,showCompleted,ToDos,setToDos }:{name:string,showCom
 
 	function deleteItem(){
 		console.log(`deleting ${itemName}`);
-		setToDos( ToDos.filter( (listItem) => listItem.name !== itemName) );
+		setToDos( ToDos.filter( (listItem) => listItem.id !== id) );
 	}
 
 	if( !checked || (checked && showCompleted)){
