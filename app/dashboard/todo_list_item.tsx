@@ -142,6 +142,7 @@ function ToDoListItem({ id,name,showCompleted,ToDos,setToDos }:{id:any,name:stri
 						<Image
 							src="trash-can.svg" 
 							className="fill-white"
+							alt="Delete ToDo List Item"
 							width={20}
 							height={20}
 						></Image>
