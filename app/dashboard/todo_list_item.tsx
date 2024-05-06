@@ -38,7 +38,7 @@ export default function ToDoList(){
 	const [itemData,setItemData] = useState(API_DATA);
 	const [showCompleted,toggleCompleted] = useState(false);
 	let newItemName = useRef("");
-	const formRef = useRef(null);
+	const formRef = useRef<HTMLFormElement>(null);
 
 	function handleNewItemName(value:string){
 		newItemName.current = value;
