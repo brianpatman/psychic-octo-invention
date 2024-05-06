@@ -1,5 +1,6 @@
 'use client';
 import { useRef, useState } from "react";
+import Image from 'next/image';
 
 // function checklistItem({name, inEditMode} : {name:string,inEditMode:boolean}){
 // 	const [checked,setCheck] = useState(false);
