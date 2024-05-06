@@ -47,7 +47,9 @@ export default function ToDoList(){
 	// function handleAddItem(event:React.FormEvent<HTMLFormElement>){
 	// 	event.preventDefault();
 	function handleAddItem(){
-		formRef.current.reset();	
+		if(formRef.current !== null){
+			formRef.current.reset();	
+		}
 
 		if(newItemName.current == ""){
 			return false;
