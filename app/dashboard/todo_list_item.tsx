@@ -38,6 +38,7 @@ export default function ToDoList(){
 	const [itemData,setItemData] = useState(API_DATA);
 	const [showCompleted,toggleCompleted] = useState(false);
 	let newItemName = useRef("");
+	const formRef = useRef(null);
 
 	function handleNewItemName(value:string){
 		newItemName.current = value;
@@ -45,7 +46,7 @@ export default function ToDoList(){
 
 	function handleAddItem(event:React.FormEvent<HTMLFormElement>){
 		event.preventDefault();
-		document.querySelector("form.add-item-dialog").reset();
+		formRef.reset();
 
 		if(newItemName.current == ""){
 			return false;
@@ -55,6 +56,7 @@ export default function ToDoList(){
 			...itemData,
 			{id:crypto.randomUUID(),name:newItemName.current}
 		]);
+
 	}
 
 	function showHideCompleted(){
@@ -83,6 +85,7 @@ export default function ToDoList(){
 		{/*{children}*/}
 		<form 
 			className="add-item-dialog" 
+			ref={formRef}
 			onSubmit={(event) => handleAddItem(event)}
 		>
 			<input className="text-black p-1" type="text" name="itemname" onChange={(event) => handleNewItemName(event.target.value)} />
