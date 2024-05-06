@@ -44,9 +44,9 @@ export default function ToDoList(){
 		newItemName.current = value;
 	}
 
-	// function handleAddItem(event:React.FormEvent<HTMLFormElement>){
-	// 	event.preventDefault();
-	function handleAddItem(){
+	// function handleAddItem(){
+	function handleAddItem(event:React.FormEvent<HTMLFormElement>){
+		event.preventDefault();
 		if(formRef.current !== null){
 			formRef.current.reset();	
 		}
@@ -88,9 +88,10 @@ export default function ToDoList(){
 		<form 
 			className="add-item-dialog" 
 			ref={formRef}
+			onSubmit={(event) => handleAddItem(event)}
 		>
 			<input className="text-black p-1" type="text" name="itemname" onChange={(event) => handleNewItemName(event.target.value)} />
-			<button onClick={handleAddItem()}>Add Item</button>
+			<button>Add Item</button>
 		</form>
 	</>;
 }
