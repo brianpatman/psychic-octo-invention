@@ -64,8 +64,8 @@ export default function ToDoList(){
 			ref={formRef}
 			onSubmit={(event) => handleAddItem(event)}
 		>
-			<input className="text-black p-1 mr-2.5 rounded" type="text" name="itemname" onChange={(event) => handleNewItemName(event.target.value)} />
-			<button className="rounded bg-blue-600 px-4 py-3">Add Item</button>
+			<input className="text-black p-2 mr-2.5 rounded" type="text" name="itemname" onChange={(event) => handleNewItemName(event.target.value)} />
+			<button className="rounded bg-blue-600 px-4 py-2">Add Item</button>
 		</form>
 	</>;
 }
@@ -108,7 +108,6 @@ function ToDoListItem({ id,name,showCompleted,ToDos,setToDos }:{id:any,name:stri
 
 					<div className="buttons">
 						<button onClick={editItem}>
-							{/*{ editable ? "Save Item" : "Edit Item"}*/}
 							{ editable ? <SaveIcon></SaveIcon> : <EditIcon></EditIcon> }
 						</button>
 
