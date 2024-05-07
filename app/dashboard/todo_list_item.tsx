@@ -1,6 +1,6 @@
 'use client';
 import { useRef, useState } from "react";
-import { TrashIcon, EditIcon, SaveIcon } from "@/app/ui/icons";\
+import { TrashIcon, EditIcon, SaveIcon } from "@/app/ui/icons";
 
 export default function ToDoList(){
 	let API_DATA = [
