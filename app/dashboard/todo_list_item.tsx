@@ -1,6 +1,6 @@
 'use client';
 import { useRef, useState } from "react";
-import { TrashIcon, EditIcon, SaveIcon } from "@/app/ui/icons.tsx"
+import { TrashIcon, EditIcon, SaveIcon } from "@/app/ui/icons";
 
 // function checklistItem({name, inEditMode} : {name:string,inEditMode:boolean}){
 // 	const [checked,setCheck] = useState(false);
