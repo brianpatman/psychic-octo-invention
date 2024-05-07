@@ -5,7 +5,8 @@ import "@/app/globals.css";
 const links = [
 	{id:"1", name:"Home", href:"/dashboard"},
 	{id:"2", name:"Simple Addition", href:"/dashboard/simple_add"},
-	{id:"3", name:"Simple Add w/ Single State", href:"/dashboard/simple_add_single_state"}
+	{id:"3", name:"Simple Add w/ Single State", href:"/dashboard/simple_add_single_state"},
+	{id:"4", name:"To-Do List", href="/dashboard/todo"}
 ]
 
 export default function Layout({children}: {children: React.ReactNode}){
