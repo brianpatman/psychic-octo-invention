@@ -8,7 +8,7 @@ export default function Page(){
 
 		<h2 className="mt-10">React Apps to Make</h2>
 		<ul className="list-disc list-inside">
-			<li>ToDo List</li>
+			<li className="line-through">ToDo List</li>
 			<li>Weather App</li>
 			<li>Emoji Search</li>
 			<li>Quiz</li>
