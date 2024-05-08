@@ -2,6 +2,32 @@
 import { useRef, useState } from "react";
 import { TrashIcon, EditIcon, SaveIcon } from "@/app/ui/icons";
 
+// function checklistItem({name, inEditMode} : {name:string,inEditMode:boolean}){
+// 	const [checked,setCheck] = useState(false);
+// 	const [itemName,setName] = useState( name );
+
+// 	function handleCheck(){
+// 		setCheck(checked => !checked);
+// 	}
+
+// 	if(inEditMode){
+// 		return <>
+// 			<label>
+// 				<input type="text" className="edit-name text-black" onChange={(event) => setName(event.target.value)} value={itemName} />
+// 				<span className="sr-only">Edit field</span>
+// 			</label>
+// 		</>;
+// 	}
+// 	else{
+// 		return <>
+// 			<label className={checked ? "line-through" : "" }>
+// 				<input className="mr-1.5" type="checkbox" onChange={handleCheck} />
+// 				<span className="itemName">{itemName}</span>
+// 			</label>
+// 		</>
+// 	}
+// }
+
 export default function ToDoList(){
 	let API_DATA = [
 		{id:"1", name:"Laundry"},
@@ -40,7 +66,7 @@ export default function ToDoList(){
 	}
 
 	return <>
-		<div className="controls">
+		<div className="controls rounded bg-blue-400 px-2 py-3 mb-2 border border-blue-600">
 			<label>			
 				<input className="mr-1.5" type="checkbox" onChange={showHideCompleted} />
 				Show Completed Items
