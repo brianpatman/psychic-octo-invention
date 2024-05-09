@@ -51,7 +51,7 @@ export default function ToDoList(){
 
 		itemName = form["itemname"].value;
 
-		if(itemName === null){
+		if(itemName == ""){
 			return false;
 		}
 
