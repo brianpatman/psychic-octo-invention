@@ -67,6 +67,42 @@ export default function ToDoList(){
 		toggleCompleted(showCompleted => !showCompleted);
 	}
 
+	const dragItem = useRef<any>();
+	const dragOverItem = useRef<any>();
+
+	function dragStart(e){
+		dragItem.current = e.target.id;
+	}
+
+	function dragEnter(e){
+		dragOverItem.current = e.target.id;
+	}
+
+	function dropItem(){
+		const listItems = [...itemData];
+		const dragItemContent = listItems[dragItem.current];
+
+		let dragItemIndex = 0;
+		let dragOverItemIndex = 0;
+
+		listItems.forEach(item, (child,index) => {
+			if(item.id == dragItem.current){
+				dragItemIndex = index;
+			}
+
+			if(item.id == dragOverItem.current){
+				dragOverItemIndex = index;
+			}
+		});
+
+		listItems.splice(dragItemIndex,1);
+		listItems.splice(dragOverItemIndex,0,dragItemContent)
+
+		dragItem.current = null
+		dragOverItem.current = null
+		setItemData(listItems);
+	}
+
 	return <>
 		<div className="controls rounded bg-blue-400 px-2 py-3 mb-2 border border-blue-600">
 			<label>			
@@ -83,7 +119,12 @@ export default function ToDoList(){
 					name={item.name} 
 					showCompleted={showCompleted} 
 					ToDos={itemData} 
-					setToDos={setItemData}/>
+					setToDos={setItemData}
+					onDragStart={(e) => dragStart(e)}
+					onDragEnter={(e) => dragEnter(e)}
+					onDragEnd={dropItem}
+					draggable 
+				/>
 			)
 		}
 		<form 
@@ -101,6 +142,8 @@ function ToDoListItem({ id,name,showCompleted,ToDos,setToDos }:{id:any,name:stri
 	const [editable,setEditable] = useState(false);
 	const [checked,setCheck] = useState(false);
 	const [itemName,setName] = useState( name );
+	const dragItem = useRef();
+	const dragOverItem = useRef();
 
 	function handleCheck(){
 		setCheck(checked => !checked);
