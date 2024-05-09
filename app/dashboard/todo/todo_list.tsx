@@ -49,7 +49,7 @@ export default function ToDoList(){
 
 		let form = formRef.current;
 		if(form !== null){
-			console.log(form["itemname"]);
+			console.log(form["itemname"].value);
 		}
 
 		if(formRef.current !== null){
