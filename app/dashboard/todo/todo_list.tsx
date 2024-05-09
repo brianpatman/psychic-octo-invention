@@ -122,10 +122,11 @@ export default function ToDoList(){
 					showCompleted={showCompleted} 
 					ToDos={itemData} 
 					setToDos={setItemData}
-					onDragStart={(e) => dragStart(e)}
-					onDragEnter={(e) => dragEnter(e)}
-					onDragEnd={dropItem}
-					draggable 
+					draggable
+					// onDragStart={(e) => dragStart(e)}
+					// onDragEnter={(e) => dragEnter(e)}
+					// onDragEnd={dropItem}
+					// draggable 
 				/>
 			)
 		}
