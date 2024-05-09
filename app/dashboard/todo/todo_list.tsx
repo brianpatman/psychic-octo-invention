@@ -45,14 +45,21 @@ export default function ToDoList(){
 		let form = formRef.current;
 		let itemName = "";
 
-		if(form !== null){
-			itemName = form["itemname"].value;
-			form.reset();
+		if(form === null){
+			return false;
 		}
+
+		itemName = form["itemname"].value;
+
+		if(itemName == "" || itemName === null){
+			return false;
+		}
+
+		form.reset();
 
 		setItemData([
 			...itemData,
-			{id:crypto.randomUUID(),name:newItemName.current}
+			{ id: crypto.randomUUID(), name: itemName }
 		]);
 	}
 
