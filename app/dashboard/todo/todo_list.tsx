@@ -37,27 +37,17 @@ export default function ToDoList(){
 
 	const [itemData,setItemData] = useState(API_DATA);
 	const [showCompleted,toggleCompleted] = useState(false);
-	let newItemName = useRef("");
 	const formRef = useRef<HTMLFormElement>(null);
-
-	function handleNewItemName(value:string){
-		newItemName.current = value;
-	}
 
 	function handleAddItem(event:React.FormEvent<HTMLFormElement>){
 		event.preventDefault();
 
 		let form = formRef.current;
+		let itemName = "";
+
 		if(form !== null){
-			console.log(form["itemname"].value);
-		}
-
-		if(formRef.current !== null){
-			formRef.current.reset();	
-		}
-
-		if(newItemName.current == ""){
-			return false;
+			itemName = form["itemname"].value;
+			form.reset();
 		}
 
 		setItemData([
@@ -94,7 +84,7 @@ export default function ToDoList(){
 			ref={formRef}
 			onSubmit={(event) => handleAddItem(event)}
 		>
-			<input className="text-black p-2 mr-2.5 rounded" type="text" name="itemname" onChange={(event) => handleNewItemName(event.target.value)} />
+			<input className="text-black p-2 mr-2.5 rounded" type="text" name="itemname" />
 			<button className="rounded bg-blue-600 px-4 py-2">Add Item</button>
 		</form>
 	</>;
