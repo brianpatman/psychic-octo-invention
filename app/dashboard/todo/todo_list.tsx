@@ -70,11 +70,11 @@ export default function ToDoList(){
 	const dragItem = useRef<any>();
 	const dragOverItem = useRef<any>();
 
-	function dragStart(e){
+	function dragStart(e:React.FormEvent<HTMLFormElement>){
 		dragItem.current = e.target.id;
 	}
 
-	function dragEnter(e){
+	function dragEnter(e:React.FormEvent<HTMLFormElement>){
 		dragOverItem.current = e.target.id;
 	}
 
