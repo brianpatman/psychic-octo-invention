@@ -87,7 +87,7 @@ export default function ToDoList(){
 		let dragItemIndex = 0;
 		let dragOverItemIndex = 0;
 
-		listItems.forEach( (element, index, array) {
+		listItems.forEach( (element, index, array) => {
 			if(element.id == dragItem.current){
 				dragItemIndex = index;
 			}
