@@ -48,7 +48,9 @@ export default function ToDoList(){
 		event.preventDefault();
 
 		let form = formRef.current;
-		console.log(form["itemname"]);
+		if(form !== null){
+			console.log(form["itemname"]);
+		}
 
 		if(formRef.current !== null){
 			formRef.current.reset();	
