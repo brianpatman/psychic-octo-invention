@@ -149,7 +149,7 @@ export default function ToDoList(){
 			<button className="rounded bg-blue-600 px-4 py-2">Add Item</button>
 		</form>
 
-		<div role="status" aria-live="polite" id="feedback" class="sr-only">
+		<div role="status" aria-live="polite" id="feedback" className="sr-only">
 			{ariaLive}
 		</div>
 	</>;
