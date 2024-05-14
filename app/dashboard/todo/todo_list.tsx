@@ -70,10 +70,10 @@ export default function ToDoList(){
 		toggleCompleted(showCompleted => !showCompleted);
 
 		if(showCompleted){
-			setAriaLive('Completed Items set to be Shown');
+			setAriaLive('Completed Items set to not be Shown');
 		}
 		else{
-			setAriaLive('Completed Items set to not be Shown');
+			setAriaLive('Completed Items set to be Shown');
 		}
 	}
 
