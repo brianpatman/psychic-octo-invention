@@ -97,6 +97,7 @@ export default function ToDoList(){
 			</label>
 		</div>
 
+		<ul className="list-none">
 		{ 
 			itemData.map( item =>
 				<ToDoListItem 
@@ -114,6 +115,8 @@ export default function ToDoList(){
 				/>
 			)
 		}
+		</ul>
+		
 		<form 
 			className="add-item-dialog my-5" 
 			ref={formRef}
