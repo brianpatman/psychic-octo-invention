@@ -1,5 +1,5 @@
 'use client';
-import { useRef, useState } from "react";
+import { useState } from "react";
 import styles from "./ToDoListItem.module.css";
 import { TrashIcon, EditIcon, SaveIcon } from "@/app/ui/icons";
 
@@ -7,8 +7,6 @@ export default function ToDoListItem({ id,name,showCompleted,ToDos,setToDos,setA
 	const [editable,setEditable] = useState(false);
 	const [checked,setCheck] = useState(false);
 	const [itemName,setName] = useState( name );
-	const dragItem = useRef();
-	const dragOverItem = useRef();
 
 	function handleCheck(){
 		setCheck(checked => !checked);
