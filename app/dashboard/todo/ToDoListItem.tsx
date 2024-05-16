@@ -62,7 +62,7 @@ export default function ToDoListItem({ id,name,showCompleted,ToDos,setToDos,setA
 					{ editable ? (
 						<>
 							<label>
-								<input type="text" className={styles['edit-name']} onChange={(event) => setName(event.target.value) value={itemName} />
+								<input type="text" className={styles['edit-name']} onChange={(event) => setName(event.target.value)} value={itemName} />
 								<span className="sr-only">Edit {itemName} field</span>
 							</label>
 						</>
