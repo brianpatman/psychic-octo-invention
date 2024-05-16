@@ -97,32 +97,35 @@ export default function ToDoList(){
 			</label>
 		</div>
 
-		<ul className="list-none">
-		{ 
-			itemData.map( item =>
-				<ToDoListItem 
-					key={item.id} 
-					id={item.id}
-					name={item.name} 
-					showCompleted={showCompleted} 
-					ToDos={itemData} 
-					setToDos={setItemData}
-					setAriaLive={setAriaLive}
-					// onDragStart={(e) => dragStart(e)}
-					// onDragEnter={(e) => dragEnter(e)}
-					// onDragEnd={dropItem}
-					// draggable 
-				/>
-			)
-		}
+		<ul>
+			{ 
+				itemData.map( item =>
+					<ToDoListItem 
+						key={item.id} 
+						id={item.id}
+						name={item.name} 
+						showCompleted={showCompleted} 
+						ToDos={itemData} 
+						setToDos={setItemData}
+						setAriaLive={setAriaLive}
+						// onDragStart={(e) => dragStart(e)}
+						// onDragEnter={(e) => dragEnter(e)}
+						// onDragEnd={dropItem}
+						// draggable 
+					/>
+				)
+			}
 		</ul>
-		
+
 		<form 
 			className="add-item-dialog my-5" 
 			ref={formRef}
 			onSubmit={(event) => handleAddItem(event)}
 		>
-			<input className="text-black p-2 mr-2.5 rounded" type="text" name="itemname" />
+			<label>
+				<span className="block mb-1 font-bold">Item to Add</span>
+				<input className="text-black p-2 mr-2.5 rounded" type="text" name="itemname" />
+			</label>
 			<button className="rounded bg-blue-600 px-4 py-2">Add Item</button>
 		</form>
 
