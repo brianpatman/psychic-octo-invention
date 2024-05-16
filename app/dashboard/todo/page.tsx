@@ -1,7 +1,7 @@
 'use client'
 import "@/app/globals.css";
 import { useState } from 'react';
-import ToDoList from "./todo_list";
+import ToDoList from "./ToDoList";
 
 export default function ToDoPage(){
 	return <>
