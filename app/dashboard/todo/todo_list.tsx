@@ -1,32 +1,6 @@
 'use client';
 import { useRef, useState } from "react";
-import { TrashIcon, EditIcon, SaveIcon } from "@/app/ui/icons";
-
-// function checklistItem({name, inEditMode} : {name:string,inEditMode:boolean}){
-// 	const [checked,setCheck] = useState(false);
-// 	const [itemName,setName] = useState( name );
-
-// 	function handleCheck(){
-// 		setCheck(checked => !checked);
-// 	}
-
-// 	if(inEditMode){
-// 		return <>
-// 			<label>
-// 				<input type="text" className="edit-name text-black" onChange={(event) => setName(event.target.value)} value={itemName} />
-// 				<span className="sr-only">Edit field</span>
-// 			</label>
-// 		</>;
-// 	}
-// 	else{
-// 		return <>
-// 			<label className={checked ? "line-through" : "" }>
-// 				<input className="mr-1.5" type="checkbox" onChange={handleCheck} />
-// 				<span className="itemName">{itemName}</span>
-// 			</label>
-// 		</>
-// 	}
-// }
+import ToDoListItem from "./ToDoListItem";
 
 export default function ToDoList(){
 	let API_DATA = [
@@ -58,8 +32,31 @@ export default function ToDoList(){
 
 		form.reset();
 
-		setItemData([
-			...itemData,
+		// Updating a state with a "normal" call. 
+		//
+		// Instructor in my course says to always use an updater function, but
+		// the react documentation disagrees, so I've kept both methods here
+		// for posterity 
+		// https://react.dev/reference/react/useState#updating-state-based-on-the-previous-state
+		// 
+		// setItemData([
+		// 	...itemData,
+		// 	{ id: crypto.randomUUID(), name: itemName }
+		// ]);
+
+
+		// Updating State with an Updater Function
+		//
+		// Use this to update a state based on the previous state;
+		// this ensures that, in the case of multiple queued state updates,
+		// that the state isn't updated based on an older value of the state
+		//
+		// TODO: !!!! ADD A BULK IMPORT OPTION THAT ALLOWS USERS TO ADD MULTIPLE
+		//            TO DO LIST ITEMS AT ONCE, THEREBY TRIGGERING THE UNDESIRABLE
+		//            BEHAVIOR THAT MAKES AN UPDATER FUNCTION NECESSARY
+		//
+		setItemData( (existingItemData) => [
+			...existingItemData,
 			{ id: crypto.randomUUID(), name: itemName }
 		]);
 
@@ -115,103 +112,70 @@ export default function ToDoList(){
 	// 	setItemData(listItems);
 	// }
 
+	console.log(itemData.length);
+
 	return <>
-		<div className="controls rounded bg-blue-400 px-2 py-3 mb-2 border border-blue-600">
-			<label>			
-				<input className="mr-1.5" type="checkbox" onChange={showHideCompleted} />
-				Show Completed Items
-			</label>
-		</div>
+		{ itemData.length > 0 && (
+			<>
+			<div className="controls rounded bg-blue-400 px-2 py-3 mb-2 border border-blue-600">
+				<label>			
+					<input className="mr-1.5" type="checkbox" onChange={showHideCompleted} />
+					Show Completed Items
+				</label>
+			</div>
+
+			<ul>
+				{ 
+					itemData.map( item =>
+						<ToDoListItem 
+							key={item.id} 
+							id={item.id}
+							name={item.name} 
+							showCompleted={showCompleted} 
+							ToDos={itemData} 
+							setToDos={setItemData}
+							setAriaLive={setAriaLive}
+							// onDragStart={(e) => dragStart(e)}
+							// onDragEnter={(e) => dragEnter(e)}
+							// onDragEnd={dropItem}
+							// draggable 
+						/>
+					)
+				}
+			</ul>
+			</>
+		)};
+
+		{itemData.length == 0 &&(
+			<div>
+				<h2>No Items on your ToDo List!</h2>
+				<p>Surely you have <em>something</em> you need to do?</p>
+			</div>
+		)};
+		
 
 		{ 
-			itemData.map( item =>
-				<ToDoListItem 
-					key={item.id} 
-					id={item.id}
-					name={item.name} 
-					showCompleted={showCompleted} 
-					ToDos={itemData} 
-					setToDos={setItemData}
-					setAriaLive={setAriaLive}
-					// onDragStart={(e) => dragStart(e)}
-					// onDragEnter={(e) => dragEnter(e)}
-					// onDragEnd={dropItem}
-					// draggable 
-				/>
-			)
+			/* 
+				TODO: !!! - Add a conditional that shows some other HTML when all 
+				tasks on the list are complete.
+			*/
 		}
+
 		<form 
 			className="add-item-dialog my-5" 
 			ref={formRef}
 			onSubmit={(event) => handleAddItem(event)}
 		>
-			<input className="text-black p-2 mr-2.5 rounded" type="text" name="itemname" />
+			<label>
+				<span className="block mb-1 font-bold">Item to Add</span>
+				<input className="text-black p-2 mr-2.5 rounded" type="text" name="itemname" />
+			</label>
 			<button className="rounded bg-blue-600 px-4 py-2">Add Item</button>
 		</form>
+
 
 		<div role="status" aria-live="polite" id="feedback" className="sr-only">
 			{ariaLive}
 		</div>
 	</>;
-}
-
-function ToDoListItem({ id,name,showCompleted,ToDos,setToDos,setAriaLive }:{id:any,name:string,showCompleted:boolean,ToDos:Array<any>,setToDos:any,setAriaLive:any}){
-	const [editable,setEditable] = useState(false);
-	const [checked,setCheck] = useState(false);
-	const [itemName,setName] = useState( name );
-	const dragItem = useRef();
-	const dragOverItem = useRef();
-
-	function handleCheck(){
-		setCheck(checked => !checked);
-
-		if(checked){
-			setAriaLive(`Unchecked item ${itemName}`);
-		}
-		else{
-			setAriaLive(`Checked item ${itemName}`);
-		}
-	}
-
-	function editItem(){
-		setEditable(editable => !editable);
-	}
-
-	function deleteItem(){
-		setToDos( ToDos.filter( (listItem) => listItem.id !== id) );
-		setAriaLive(`Deleted item ${itemName}.`);
-	}
-
-	if( !checked || (checked && showCompleted)){
-		return <> 
-				<div className="flex gap-24 items-center justify-between border-y border-white py-2 px-3">
-					{ editable ? (
-						<>
-							<label>
-								<input type="text" className="edit-name rounded p-2 text-black" onChange={(event) => setName(event.target.value)} value={itemName} />
-								<span className="sr-only">Edit {itemName} field</span>
-							</label>
-						</>
-					) : (
-						<>
-							<label className={checked ? "line-through" : "" }>
-								<input className="mr-1.5" type="checkbox" onChange={handleCheck} checked={checked} />
-								<span className="itemName">{itemName}</span>
-							</label>
-						</>
-					)}
-
-					<div className="buttons">
-						<button onClick={editItem}>
-							{ editable ? <SaveIcon></SaveIcon> : <EditIcon></EditIcon> }
-						</button>
-
-						<button className="delete-item-btn" onClick={deleteItem}>
-							<TrashIcon></TrashIcon>
-						</button>
-					</div>
-				</div>
-		</>;
-	}
-
 }
