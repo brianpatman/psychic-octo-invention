@@ -112,6 +112,8 @@ export default function ToDoList(){
 	// 	setItemData(listItems);
 	// }
 
+	console.log(itemData.length);
+
 	return <>
 		{ itemData.length > 0 && (
 			<>
