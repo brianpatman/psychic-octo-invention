@@ -144,14 +144,14 @@ export default function ToDoList(){
 				}
 			</ul>
 			</>
-		)};
+		)}
 
 		{itemData.length == 0 &&(
 			<div>
 				<h2>No Items on your ToDo List!</h2>
 				<p>Surely you have <em>something</em> you need to do?</p>
 			</div>
-		)};
+		)}
 		
 
 		{ 
