@@ -32,8 +32,31 @@ export default function ToDoList(){
 
 		form.reset();
 
-		setItemData([
-			...itemData,
+		// Updating a state with a "normal" call. 
+		//
+		// Instructor in my course says to always use an updater function, but
+		// the react documentation disagrees, so I've kept both methods here
+		// for posterity 
+		// https://react.dev/reference/react/useState#updating-state-based-on-the-previous-state
+		// 
+		// setItemData([
+		// 	...itemData,
+		// 	{ id: crypto.randomUUID(), name: itemName }
+		// ]);
+
+
+		// Updating State with an Updater Function
+		//
+		// Use this to update a state based on the previous state;
+		// this ensures that, in the case of multiple queued state updates,
+		// that the state isn't updated based on an older value of the state
+		//
+		// TODO: !!!! ADD A BULK IMPORT OPTION THAT ALLOWS USERS TO ADD MULTIPLE
+		//            TO DO LIST ITEMS AT ONCE, THEREBY TRIGGERING THE UNDESIRABLE
+		//            BEHAVIOR THAT MAKES AN UPDATER FUNCTION NECESSARY
+		//
+		setItemData( (existingItemData) => [
+			...existingItemData,
 			{ id: crypto.randomUUID(), name: itemName }
 		]);
 
@@ -90,32 +113,51 @@ export default function ToDoList(){
 	// }
 
 	return <>
-		<div className="controls rounded bg-blue-400 px-2 py-3 mb-2 border border-blue-600">
-			<label>			
-				<input className="mr-1.5" type="checkbox" onChange={showHideCompleted} />
-				Show Completed Items
-			</label>
-		</div>
+		{ itemData.length > 0 && (
+			<>
+			<div className="controls rounded bg-blue-400 px-2 py-3 mb-2 border border-blue-600">
+				<label>			
+					<input className="mr-1.5" type="checkbox" onChange={showHideCompleted} />
+					Show Completed Items
+				</label>
+			</div>
 
-		<ul>
-			{ 
-				itemData.map( item =>
-					<ToDoListItem 
-						key={item.id} 
-						id={item.id}
-						name={item.name} 
-						showCompleted={showCompleted} 
-						ToDos={itemData} 
-						setToDos={setItemData}
-						setAriaLive={setAriaLive}
-						// onDragStart={(e) => dragStart(e)}
-						// onDragEnter={(e) => dragEnter(e)}
-						// onDragEnd={dropItem}
-						// draggable 
-					/>
-				)
-			}
-		</ul>
+			<ul>
+				{ 
+					itemData.map( item =>
+						<ToDoListItem 
+							key={item.id} 
+							id={item.id}
+							name={item.name} 
+							showCompleted={showCompleted} 
+							ToDos={itemData} 
+							setToDos={setItemData}
+							setAriaLive={setAriaLive}
+							// onDragStart={(e) => dragStart(e)}
+							// onDragEnter={(e) => dragEnter(e)}
+							// onDragEnd={dropItem}
+							// draggable 
+						/>
+					)
+				}
+			</ul>
+			</>
+		)};
+
+		{itemData.length == 0 &&(
+			<div>
+				<h2>No Items on your ToDo List!</h2>
+				<p>Surely you have <em>something</em> you need to do?</p>
+			</div>
+		)};
+		
+
+		{ 
+			/* 
+				TODO: !!! - Add a conditional that shows some other HTML when all 
+				tasks on the list are complete.
+			*/
+		}
 
 		<form 
 			className="add-item-dialog my-5" 
@@ -128,6 +170,7 @@ export default function ToDoList(){
 			</label>
 			<button className="rounded bg-blue-600 px-4 py-2">Add Item</button>
 		</form>
+
 
 		<div role="status" aria-live="polite" id="feedback" className="sr-only">
 			{ariaLive}
