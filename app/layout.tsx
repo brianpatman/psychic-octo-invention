@@ -23,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={roboto.className}>
 	  	<div className="flex flex-col md:flex-row md:overflow-hidden">
 			<div className="w-full flex-none w-48 md:w-64 h-screen bg-teal-700">
 				<div className="sidenav">
