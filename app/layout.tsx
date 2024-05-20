@@ -2,7 +2,7 @@ import Link from "next/link"
 import { roboto } from "@/app/ui/fonts"
 import "@/app/globals.css"
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+// import { Inter } from 'next/font/google'
 
 export const metadata: Metadata = {
   title: 'My NextJS App',
@@ -23,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
 	  	<div className="flex flex-col md:flex-row md:overflow-hidden">
 			<div className="w-full flex-none w-48 md:w-64 h-screen bg-teal-700">
 				<div className="sidenav">
