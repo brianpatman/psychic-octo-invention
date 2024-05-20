@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 }
 
 const links = [
-	{id:"1", name:"Home", href:"/dashboard"},
-	{id:"4", name:"To-Do List", href:"/dashboard/todo"},
-	{id:"3", name:"Simple Add w/ Single State", href:"/dashboard/simple_add_single_state"},
-	{id:"2", name:"Simple Addition", href:"/dashboard/simple_add"},
+	{id:"1", name:"Home", href:"/"},
+	{id:"4", name:"To-Do List", href:"/todo"},
+	{id:"3", name:"Simple Add w/ Single State", href:"/simple_add_single_state"},
+	{id:"2", name:"Simple Addition", href:"/simple_add"},
 ]
 
 export default function RootLayout({
