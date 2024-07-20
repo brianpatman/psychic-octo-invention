@@ -4,15 +4,15 @@ import styles from "./ToDoListItem.module.css";
 import { TrashIcon, EditIcon, SaveIcon } from "@/app/ui/icons";
 
 type ListProps = {
-	id:any,
-	name:string,
-	showCompleted:boolean,
-	ToDos:Array<any>,
-	setToDos:any,
-	setAriaLive:any
+	id: any,
+	name: string,
+	showCompleted: boolean,
+	ToDos: Array<any>,
+	setToDos: any,
+	setAriaLive: any
 };
 
-export default function ToDoListItem({ id,name,showCompleted,ToDos,setToDos,setAriaLive }:{ListProps}){
+export default function ToDoListItem({ id,name,showCompleted,ToDos,setToDos,setAriaLive } : ListProps){
 	const [editable,setEditable] = useState(false);
 	const [checked,setCheck] = useState(false);
 	const [itemName,setName] = useState( name );
